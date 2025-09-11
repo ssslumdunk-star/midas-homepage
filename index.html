@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Midas - Windows 95 Desktop</title>
+    <style>
+        /* Simplified Windows 95 Style CSS */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'MS Sans Serif', sans-serif;
+            font-size: 11px;
+            background: #008080;
+            background-image: 
+                radial-gradient(circle at 25% 25%, #008080 0%, #008080 50%, transparent 50.5%),
+                radial-gradient(circle at 75% 75%, #004040 0%, #004040 50%, transparent 50.5%);
+            background-size: 4px 4px;
+            min-height: 100vh;
+            cursor: default;
+        }
+
+        .desktop {
+            min-height: calc(100vh - 28px);
+            position: relative;
+            padding: 10px;
+        }
+
+        /* Desktop Icons */
+        .desktop-icon {
+            position: absolute;
+            width: 64px;
+            text-align: center;
+            cursor: pointer;
+            user-select: none;
+            color: white;
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.8);
+            z-index: 1000;
+        }
+
+        .desktop-icon:nth-child(1) { top: 50px; left: 50px; }
+        .desktop-icon:nth-child(2) { top: 50px; left: 150px; }
+
+        .icon-image {
+            width: 32px;
+            height: 32px;
+            margin: 0 auto 4px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .icon-label {
+            font-size: 11px;
+            line-height: 12px;
+            word-wrap: break-word;
+        }
+
+        /* Trading Calendar Icon */
+        .trading-icon {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect fill="%23ffcc00" x="4" y="4" width="24" height="24" stroke="%23000" stroke-width="1"/><rect fill="%23ff0000" x="6" y="6" width="20" height="3"/><text x="16" y="16" fill="%23000" text-anchor="middle" font-size="8" font-family="serif">历</text><circle fill="%23008000" cx="10" cy="22" r="2"/><circle fill="%23ff0000" cx="22" cy="22" r="2"/><path stroke="%23000" stroke-width="1" fill="none" d="M8 12 L12 18 L20 10 L24 16"/></svg>');
+        }
+
+        /* Caifu Stock Icon */
+        .caifu-icon {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect fill="%23667eea" x="2" y="2" width="28" height="28" stroke="%23000" stroke-width="1" rx="3"/><circle fill="%23ffd700" cx="16" cy="12" r="8" stroke="%23000" stroke-width="1"/><text x="16" y="16" fill="%23000" text-anchor="middle" font-size="10" font-family="serif">$</text><path stroke="%23ffd700" stroke-width="2" fill="none" d="M6 22 L12 18 L20 24 L26 20"/><text x="16" y="28" fill="%23fff" text-anchor="middle" font-size="6" font-family="serif">STOCK</text></svg>');
+        }
+
+        /* Taskbar */
+        .taskbar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 28px;
+            background: #c0c0c0;
+            border-top: 1px solid #dfdfdf;
+            display: flex;
+            align-items: center;
+            padding: 2px;
+        }
+
+        .start-button {
+            background: #c0c0c0;
+            border: 2px solid;
+            border-color: #dfdfdf #808080 #808080 #dfdfdf;
+            padding: 2px 6px;
+            font-family: 'MS Sans Serif', sans-serif;
+            font-size: 11px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            height: 22px;
+        }
+
+        .start-icon {
+            width: 16px;
+            height: 16px;
+            margin-right: 4px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><rect fill="%23ff0000" width="8" height="8"/><rect fill="%2300ff00" x="8" width="8" height="8"/><rect fill="%230000ff" y="8" width="8" height="8"/><rect fill="%23ffff00" x="8" y="8" width="8" height="8"/></svg>');
+        }
+
+        .system-tray {
+            background: #c0c0c0;
+            border: 1px inset #c0c0c0;
+            padding: 4px 8px;
+            font-size: 11px;
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .token-usage {
+            color: #0066cc;
+            font-weight: bold;
+            cursor: help;
+        }
+
+        .token-usage i {
+            color: #ff6600;
+        }
+
+        .window {
+            position: fixed;
+            background: #c0c0c0;
+            border: 2px solid;
+            border-color: #dfdfdf #808080 #808080 #dfdfdf;
+            min-width: 300px;
+            min-height: 200px;
+            box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            display: none;
+            z-index: 2000;
+        }
+
+        /* Caifu窗口特殊样式 - 更大尺寸适合股价分析 */
+        #caifu-stock {
+            width: 90vw;
+            height: 80vh;
+            max-width: 1200px;
+            max-height: 800px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .window-header {
+            background: linear-gradient(90deg, #000080 0%, #000040 100%);
+            color: white;
+            padding: 2px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 11px;
+            cursor: move;
+        }
+
+        .window-content {
+            padding: 8px;
+            height: calc(100% - 22px);
+            overflow: auto;
+        }
+
+        /* Trading calendar window */
+        #trading-calendar { 
+            top: 80px; 
+            left: 200px; 
+            width: 800px; 
+            height: 600px; 
+        }
+
+        .loading-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            background: #c0c0c0;
+            font-size: 14px;
+            font-weight: bold;
+            color: #000080;
+        }
+    </style>
+</head>
+<body>
+    <div class="desktop">
+        <!-- Desktop Icons -->        
+        <div class="desktop-icon" data-window="trading-calendar">
+            <div class="icon-image trading-icon"></div>
+            <div class="icon-label">交易老黄历</div>
+        </div>
+
+        <div class="desktop-icon" data-window="caifu-stock">
+            <div class="icon-image caifu-icon"></div>
+            <div class="icon-label">股价百分位</div>
+        </div>
+
+        <!-- Trading Calendar Window -->
+        <div class="window" id="trading-calendar">
+            <div class="window-header">
+                <div class="window-title">
+                    <span class="window-icon trading-icon"></span>
+                    交易老黄历 - Trading Calendar
+                </div>
+                <div class="window-controls">
+                    <button onclick="closeWindow('trading-calendar')" style="background: #c0c0c0; border: 1px solid; width: 16px; height: 14px; cursor: pointer;">×</button>
+                </div>
+            </div>
+            <div class="window-content" style="padding: 0;">
+                <div class="loading-container" id="loading-content">
+                    加载中... Loading 交易老黄历...
+                </div>
+            </div>
+        </div>
+
+        <!-- Caifu Stock Window -->
+        <div class="window" id="caifu-stock">
+            <div class="window-header">
+                <div class="window-title">
+                    <span class="window-icon caifu-icon"></span>
+                    股价百分位查看器 - Stock Percentile Viewer
+                </div>
+                <div class="window-controls">
+                    <button onclick="closeWindow('caifu-stock')" style="background: #c0c0c0; border: 1px solid; width: 16px; height: 14px; cursor: pointer;">×</button>
+                </div>
+            </div>
+            <div class="window-content" style="padding: 0;">
+                <div class="loading-container" id="caifu-loading-content">
+                    加载中... Loading 股价百分位查看器...
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Taskbar -->
+    <div class="taskbar">
+        <button class="start-button">
+            <span class="start-icon"></span>
+            Start
+        </button>
+        <div class="system-tray">
+            <span class="token-usage" id="token-display" title="今日AI Token使用情况">
+                <i class="fas fa-robot" style="margin-right: 4px;"></i>
+                <span id="token-count">0</span> tokens
+            </span>
+            <span class="time" id="current-time"></span>
+        </div>
+    </div>
+
+    <script>
+        console.log('简化版页面 JavaScript 开始执行');
+
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM 已加载');
+
+            // 初始化交易老黄历图标
+            const tradingIcon = document.querySelector('.desktop-icon[data-window="trading-calendar"]');
+            console.log('初始化交易老黄历图标');
+            
+            if (tradingIcon) {
+                // 确保图标可见
+                tradingIcon.style.display = 'block';
+                tradingIcon.style.visibility = 'visible';
+                tradingIcon.style.opacity = '1';
+
+                // 添加双击事件
+                tradingIcon.addEventListener('dblclick', function() {
+                    console.log('🎯 双击了交易老黄历图标');
+                    console.log('🔄 准备打开窗口和加载iframe');
+                    
+                    const window = document.getElementById('trading-calendar');
+                    window.style.display = 'block';
+                    console.log('✅ 交易老黄历窗口已显示');
+                    
+                    // 显示加载中
+                    const loadingDiv = document.getElementById('loading-content');
+                    loadingDiv.innerHTML = '🔄 加载中... Loading 交易老黄历...<br><br>正在从GitHub加载项目...';
+                    
+                    // 2秒后加载实际内容
+                    setTimeout(() => {
+                        console.log('⏰ 2秒等待完成，开始创建iframe');
+                        const content = window.querySelector('.window-content');
+                        const iframe = document.createElement('iframe');
+                        iframe.src = '/laohuangli/index.html';
+                        iframe.style.width = '100%';
+                        iframe.style.height = '100%';
+                        iframe.style.border = 'none';
+                        console.log('🖼️ iframe元素已创建，src: ', iframe.src);
+                        
+                        // 监听iframe加载完成
+                        iframe.onload = function() {
+                            console.log('✅ iframe内容加载完成');
+                            console.log('🔍 正在检测iframe环境和PC版布局...');
+                            
+                            // 由于是本地同域，可以直接访问iframe内容
+                            try {
+                                const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                                if (iframeDoc) {
+                                    console.log('🎯 成功访问iframe文档');
+                                    console.log('📱 iframe内body classList:', iframeDoc.body.classList.toString());
+                                    console.log('📏 iframe内viewport:', iframe.contentWindow.innerWidth + 'x' + iframe.contentWindow.innerHeight);
+                                    
+                                    // 检查是否已经有iframe-mode类（我们的PC版优化）
+                                    if (iframeDoc.body.classList.contains('iframe-mode')) {
+                                        console.log('✅ PC版布局已自动启用');
+                                    } else {
+                                        console.log('⚠️ 未检测到PC版布局，手动添加iframe-mode类');
+                                        iframeDoc.body.classList.add('iframe-mode');
+                                        console.log('🔄 手动添加后 classList:', iframeDoc.body.classList.toString());
+                                    }
+                                } else {
+                                    console.log('❌ 无法访问iframe文档');
+                                }
+                            } catch (e) {
+                                console.log('❌ 访问iframe文档失败:', e.message);
+                            }
+                        };
+                        
+                        iframe.onerror = function() {
+                            console.log('交易老黄历内容加载失败');
+                            content.innerHTML = '<div style="padding: 20px; text-align: center; color: red;">❌ 加载失败<br>请检查网络连接</div>';
+                        };
+                        
+                        content.innerHTML = '';
+                        content.appendChild(iframe);
+                        console.log('开始加载交易老黄历iframe');
+                    }, 2000);
+                });
+
+                // 单击选中效果
+                tradingIcon.addEventListener('click', function() {
+                    tradingIcon.style.background = 'rgba(0,0,255,0.3)';
+                });
+            }
+
+            // 初始化股价百分位查看器图标
+            const caifuIcon = document.querySelector('.desktop-icon[data-window="caifu-stock"]');
+            console.log('初始化股价百分位查看器图标');
+            
+            if (caifuIcon) {
+                // 确保图标可见
+                caifuIcon.style.display = 'block';
+                caifuIcon.style.visibility = 'visible';
+                caifuIcon.style.opacity = '1';
+
+                // 添加双击事件
+                caifuIcon.addEventListener('dblclick', function() {
+                    console.log('🎯 双击了股价百分位查看器图标');
+                    console.log('🔄 准备打开窗口和加载iframe');
+                    
+                    const window = document.getElementById('caifu-stock');
+                    window.style.display = 'block';
+                    console.log('✅ 股价百分位查看器窗口已显示');
+                    
+                    // 显示加载中
+                    const loadingDiv = document.getElementById('caifu-loading-content');
+                    loadingDiv.innerHTML = '🔄 加载中... Loading 股价百分位查看器...<br><br>正在加载美股分析工具...';
+                    
+                    // 2秒后加载实际内容
+                    setTimeout(() => {
+                        console.log('⏰ 2秒等待完成，开始创建caifu iframe');
+                        const content = window.querySelector('.window-content');
+                        const iframe = document.createElement('iframe');
+                        iframe.src = '/caifu/index.html';
+                        iframe.style.width = '100%';
+                        iframe.style.height = '100%';
+                        iframe.style.border = 'none';
+                        console.log('🖼️ caifu iframe元素已创建，src: ', iframe.src);
+                        
+                        // 监听iframe加载完成
+                        iframe.onload = function() {
+                            console.log('✅ caifu iframe内容加载完成');
+                        };
+                        
+                        iframe.onerror = function() {
+                            console.log('股价百分位查看器内容加载失败');
+                            content.innerHTML = '<div style="padding: 20px; text-align: center; color: red;">❌ 加载失败<br>请检查网络连接</div>';
+                        };
+                        
+                        content.innerHTML = '';
+                        content.appendChild(iframe);
+                        console.log('开始加载股价百分位查看器iframe');
+                    }, 2000);
+                });
+
+                // 单击选中效果
+                caifuIcon.addEventListener('click', function() {
+                    caifuIcon.style.background = 'rgba(0,0,255,0.3)';
+                });
+            }
+
+            // 更新时钟
+            function updateClock() {
+                const now = new Date();
+                const timeString = now.toLocaleTimeString([], {
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+                document.getElementById('current-time').textContent = timeString;
+            }
+            updateClock();
+            setInterval(updateClock, 1000);
+
+            console.log('页面初始化完成');
+        });
+
+        // 关闭窗口函数
+        function closeWindow(windowId) {
+            const window = document.getElementById(windowId);
+            window.style.display = 'none';
+            console.log('关闭了窗口: ' + windowId);
+        }
+    </script>
+</body>
+</html>

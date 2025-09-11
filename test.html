@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test - Midas Desktop</title>
+    <style>
+        body {
+            font-family: 'MS Sans Serif', sans-serif;
+            background: #008080;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .desktop-icon {
+            position: absolute;
+            width: 64px;
+            text-align: center;
+            cursor: pointer;
+            color: white;
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.8);
+            border: 2px solid red; /* 调试用红边框 */
+        }
+        .desktop-icon:nth-child(1) { top: 20px; left: 20px; }
+        .desktop-icon:nth-child(2) { top: 20px; left: 100px; }
+        .desktop-icon:nth-child(3) { top: 20px; left: 180px; }
+        .desktop-icon:nth-child(4) { top: 20px; left: 260px; }
+        .desktop-icon:nth-child(5) { top: 20px; left: 340px; }
+        
+        .icon-image {
+            width: 32px;
+            height: 32px;
+            margin: 0 auto 4px;
+            background: #ffcc00;
+            border: 1px solid #000;
+        }
+        .icon-label {
+            font-size: 11px;
+            line-height: 12px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="color: white;">测试页面 - 图标显示</h1>
+    
+    <div class="desktop-icon">
+        <div class="icon-image"></div>
+        <div class="icon-label">My Computer</div>
+    </div>
+    
+    <div class="desktop-icon">
+        <div class="icon-image"></div>
+        <div class="icon-label">About Me</div>
+    </div>
+    
+    <div class="desktop-icon">
+        <div class="icon-image"></div>
+        <div class="icon-label">Projects</div>
+    </div>
+    
+    <div class="desktop-icon">
+        <div class="icon-image"></div>
+        <div class="icon-label">Contact</div>
+    </div>
+    
+    <div class="desktop-icon">
+        <div class="icon-image"></div>
+        <div class="icon-label">交易老黄历</div>
+    </div>
+    
+    <p style="color: white; margin-top: 150px;">
+        如果你能看到5个带红边框的图标，说明CSS工作正常。<br>
+        如果看不到，可能是CSS加载问题。
+    </p>
+</body>
+</html>

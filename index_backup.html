@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Midas - Windows 95 Desktop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="desktop">
+        <!-- Desktop Icons -->
+        <div class="desktop-icon" data-window="my-computer">
+            <div class="icon-image my-computer-icon"></div>
+            <div class="icon-label">My Computer</div>
+        </div>
+        
+        <div class="desktop-icon" data-window="about-me">
+            <div class="icon-image notepad-icon"></div>
+            <div class="icon-label">About Me.txt</div>
+        </div>
+        
+        <div class="desktop-icon" data-window="projects">
+            <div class="icon-image folder-icon"></div>
+            <div class="icon-label">Projects</div>
+        </div>
+        
+        <div class="desktop-icon" data-window="contact">
+            <div class="icon-image mail-icon"></div>
+            <div class="icon-label">Contact</div>
+        </div>
+        
+        <div class="desktop-icon" data-window="trading-calendar">
+            <div class="icon-image trading-icon"></div>
+            <div class="icon-label">交易老黄历</div>
+        </div>
+
+        <!-- Windows -->
+        <div class="window" id="my-computer" style="display: none;">
+            <div class="window-header">
+                <div class="window-title">
+                    <span class="window-icon my-computer-icon"></span>
+                    My Computer
+                </div>
+                <div class="window-controls">
+                    <button class="control-button minimize">_</button>
+                    <button class="control-button maximize">□</button>
+                    <button class="control-button close">×</button>
+                </div>
+            </div>
+            <div class="window-content">
+                <div class="file-list">
+                    <div class="file-item">
+                        <div class="file-icon drive-icon"></div>
+                        <span>C:\ (Local Disk)</span>
+                    </div>
+                    <div class="file-item">
+                        <div class="file-icon floppy-icon"></div>
+                        <span>A:\ (Floppy Disk)</span>
+                    </div>
+                    <div class="file-item">
+                        <div class="file-icon cd-icon"></div>
+                        <span>D:\ (CD-ROM)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="window" id="about-me" style="display: none;">
+            <div class="window-header">
+                <div class="window-title">
+                    <span class="window-icon notepad-icon"></span>
+                    About Me.txt - Notepad
+                </div>
+                <div class="window-controls">
+                    <button class="control-button minimize">_</button>
+                    <button class="control-button maximize">□</button>
+                    <button class="control-button close">×</button>
+                </div>
+            </div>
+            <div class="window-content notepad-content">
+                <div class="notepad-text">
+Hello! Welcome to my digital space.
+
+My name is Midas, and this is my personal homepage designed to look like the classic Windows 95 interface that many of us remember fondly.
+
+About Me:
+• Software enthusiast
+• Retro computing lover  
+• Always exploring new technologies
+• Nostalgic for the golden age of computing
+
+Feel free to explore the desktop by double-clicking on the various icons to learn more about my projects and interests.
+
+Thanks for visiting!
+- Midas
+                </div>
+            </div>
+        </div>
+
+        <div class="window" id="projects" style="display: none;">
+            <div class="window-header">
+                <div class="window-title">
+                    <span class="window-icon folder-icon"></span>
+                    Projects
+                </div>
+                <div class="window-controls">
+                    <button class="control-button minimize">_</button>
+                    <button class="control-button maximize">□</button>
+                    <button class="control-button close">×</button>
+                </div>
+            </div>
+            <div class="window-content">
+                <div class="file-list">
+                    <div class="file-item">
+                        <div class="file-icon exe-icon"></div>
+                        <span>RetroGame.exe</span>
+                    </div>
+                    <div class="file-item">
+                        <div class="file-icon folder-icon"></div>
+                        <span>Web Development</span>
+                    </div>
+                    <div class="file-item">
+                        <div class="file-icon txt-icon"></div>
+                        <span>Ideas.txt</span>
+                    </div>
+                    <div class="file-item">
+                        <div class="file-icon folder-icon"></div>
+                        <span>Learning Resources</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="window" id="contact" style="display: none;">
+            <div class="window-header">
+                <div class="window-title">
+                    <span class="window-icon mail-icon"></span>
+                    Contact Information
+                </div>
+                <div class="window-controls">
+                    <button class="control-button minimize">_</button>
+                    <button class="control-button maximize">□</button>
+                    <button class="control-button close">×</button>
+                </div>
+            </div>
+            <div class="window-content notepad-content">
+                <div class="notepad-text">
+Contact Information
+==================
+
+Website: midas.opsignalplus.com
+Location: Digital Space
+
+Feel free to reach out through any of the channels above!
+
+Best regards,
+Midas
+
+P.S. - Thanks for taking the time to visit my retro homepage!
+                </div>
+            </div>
+        </div>
+
+        <div class="window" id="trading-calendar" style="display: none;">
+            <div class="window-header">
+                <div class="window-title">
+                    <span class="window-icon trading-icon"></span>
+                    交易老黄历 - Trading Calendar
+                </div>
+                <div class="window-controls">
+                    <button class="control-button minimize">_</button>
+                    <button class="control-button maximize">□</button>
+                    <button class="control-button close">×</button>
+                </div>
+            </div>
+            <div class="window-content" style="padding: 0; height: calc(100% - 22px);">
+                <div class="loading-container" id="trading-loading">
+                    <div class="retro-loading">
+                        <div class="loading-text">Loading 交易老黄历...</div>
+                        <div class="loading-bar-container">
+                            <div class="loading-bar"></div>
+                        </div>
+                        <div class="loading-dots">
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </div>
+                        <div class="fortune-preview">
+                            <div class="fortune-line">今日宜：交易谨慎</div>
+                            <div class="fortune-line">今日忌：盲目跟风</div>
+                        </div>
+                    </div>
+                </div>
+                <iframe id="trading-iframe" src="" style="width: 100%; height: 100%; border: none; display: none;"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Taskbar -->
+    <div class="taskbar">
+        <button class="start-button" id="start-btn">
+            <span class="start-icon"></span>
+            Start
+        </button>
+        <div class="taskbar-programs" id="taskbar-programs"></div>
+        <div class="system-tray">
+            <span class="time" id="current-time"></span>
+        </div>
+    </div>
+
+    <!-- Start Menu -->
+    <div class="start-menu" id="start-menu" style="display: none;">
+        <div class="start-menu-header">
+            <span>Windows 95</span>
+        </div>
+        <div class="start-menu-items">
+            <div class="start-menu-item">
+                <span class="menu-icon programs-icon"></span>
+                Programs
+            </div>
+            <div class="start-menu-item">
+                <span class="menu-icon documents-icon"></span>
+                Documents
+            </div>
+            <div class="start-menu-item">
+                <span class="menu-icon settings-icon"></span>
+                Settings
+            </div>
+            <div class="start-menu-item">
+                <span class="menu-icon find-icon"></span>
+                Find
+            </div>
+            <div class="start-menu-item">
+                <span class="menu-icon help-icon"></span>
+                Help
+            </div>
+            <div class="start-menu-item">
+                <span class="menu-icon run-icon"></span>
+                Run...
+            </div>
+            <hr>
+            <div class="start-menu-item">
+                <span class="menu-icon shutdown-icon"></span>
+                Shut Down...
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

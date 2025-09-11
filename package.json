@@ -1,0 +1,22 @@
+{
+  "name": "midas-win95-homepage",
+  "version": "1.0.0",
+  "description": "A nostalgic Windows 95 style personal homepage for Midas",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "windows95",
+    "retro",
+    "homepage",
+    "nostalgia",
+    "vintage"
+  ],
+  "author": "Midas",
+  "license": "MIT",
+  "engines": {
+    "node": ">=12.0.0"
+  }
+}

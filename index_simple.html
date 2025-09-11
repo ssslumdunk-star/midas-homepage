@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Midas - Windows 95 Desktop</title>
+    <style>
+        /* Simplified Windows 95 Style CSS */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'MS Sans Serif', sans-serif;
+            font-size: 11px;
+            background: #008080;
+            background-image: 
+                radial-gradient(circle at 25% 25%, #008080 0%, #008080 50%, transparent 50.5%),
+                radial-gradient(circle at 75% 75%, #004040 0%, #004040 50%, transparent 50.5%);
+            background-size: 4px 4px;
+            min-height: 100vh;
+            cursor: default;
+        }
+
+        .desktop {
+            min-height: calc(100vh - 28px);
+            position: relative;
+            padding: 10px;
+        }
+
+        /* Desktop Icons */
+        .desktop-icon {
+            position: absolute;
+            width: 64px;
+            text-align: center;
+            cursor: pointer;
+            user-select: none;
+            color: white;
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.8);
+            border: 2px solid red; /* 调试边框 */
+            background: rgba(255,0,0,0.1); /* 调试背景 */
+            z-index: 1000;
+        }
+
+        .desktop-icon:nth-child(1) { top: 10px; left: 10px; }
+        .desktop-icon:nth-child(2) { top: 90px; left: 10px; }
+        .desktop-icon:nth-child(3) { top: 170px; left: 10px; }
+        .desktop-icon:nth-child(4) { top: 250px; left: 10px; }
+        .desktop-icon:nth-child(5) { top: 10px; left: 90px; }
+
+        .icon-image {
+            width: 32px;
+            height: 32px;
+            margin: 0 auto 4px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .icon-label {
+            font-size: 11px;
+            line-height: 12px;
+            word-wrap: break-word;
+        }
+
+        /* Icon sprites */
+        .my-computer-icon {
+            background-color: #c0c0c0;
+            border: 2px solid;
+            border-color: #dfdfdf #808080 #808080 #dfdfdf;
+        }
+
+        .notepad-icon {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect fill="%23ffffff" x="4" y="2" width="20" height="26" stroke="%23000" stroke-width="1"/><rect fill="%23000080" x="4" y="2" width="20" height="4"/><line x1="6" y1="10" x2="22" y2="10" stroke="%23000" stroke-width="1"/><line x1="6" y1="14" x2="22" y2="14" stroke="%23000" stroke-width="1"/><line x1="6" y1="18" x2="18" y2="18" stroke="%23000" stroke-width="1"/></svg>');
+        }
+
+        .folder-icon {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="%23ffff00" d="M4 8h10l2 2h12v16H4z" stroke="%23000" stroke-width="1"/></svg>');
+        }
+
+        .mail-icon {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect fill="%23ffffff" x="4" y="8" width="24" height="16" stroke="%23000" stroke-width="1"/><path fill="none" stroke="%23000" stroke-width="1" d="M4 8l12 8 12-8"/></svg>');
+        }
+
+        .trading-icon {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect fill="%23ffcc00" x="4" y="4" width="24" height="24" stroke="%23000" stroke-width="1"/><rect fill="%23ff0000" x="6" y="6" width="20" height="3"/><text x="16" y="16" fill="%23000" text-anchor="middle" font-size="8" font-family="serif">历</text><circle fill="%23008000" cx="10" cy="22" r="2"/><circle fill="%23ff0000" cx="22" cy="22" r="2"/><path stroke="%23000" stroke-width="1" fill="none" d="M8 12 L12 18 L20 10 L24 16"/></svg>');
+        }
+
+        /* Taskbar */
+        .taskbar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 28px;
+            background: #c0c0c0;
+            border-top: 1px solid #dfdfdf;
+            display: flex;
+            align-items: center;
+            padding: 2px;
+        }
+
+        .start-button {
+            background: #c0c0c0;
+            border: 2px solid;
+            border-color: #dfdfdf #808080 #808080 #dfdfdf;
+            padding: 2px 6px;
+            font-family: 'MS Sans Serif', sans-serif;
+            font-size: 11px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            height: 22px;
+        }
+
+        .start-icon {
+            width: 16px;
+            height: 16px;
+            margin-right: 4px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><rect fill="%23ff0000" width="8" height="8"/><rect fill="%2300ff00" x="8" width="8" height="8"/><rect fill="%230000ff" y="8" width="8" height="8"/><rect fill="%23ffff00" x="8" y="8" width="8" height="8"/></svg>');
+        }
+
+        .system-tray {
+            background: #c0c0c0;
+            border: 1px inset #c0c0c0;
+            padding: 4px 8px;
+            font-size: 11px;
+            margin-left: auto;
+        }
+
+        .window {
+            position: fixed;
+            background: #c0c0c0;
+            border: 2px solid;
+            border-color: #dfdfdf #808080 #808080 #dfdfdf;
+            min-width: 300px;
+            min-height: 200px;
+            box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            display: none;
+            z-index: 2000;
+        }
+
+        .window-header {
+            background: linear-gradient(90deg, #000080 0%, #000040 100%);
+            color: white;
+            padding: 2px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 11px;
+            cursor: move;
+        }
+
+        .window-content {
+            padding: 8px;
+            height: calc(100% - 22px);
+            overflow: auto;
+        }
+
+        /* Trading calendar window */
+        #trading-calendar { 
+            top: 80px; 
+            left: 200px; 
+            width: 800px; 
+            height: 600px; 
+        }
+
+        .loading-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            background: #c0c0c0;
+            font-size: 14px;
+            font-weight: bold;
+            color: #000080;
+        }
+    </style>
+</head>
+<body>
+    <div class="desktop">
+        <!-- Desktop Icons -->
+        <div class="desktop-icon" data-window="my-computer">
+            <div class="icon-image my-computer-icon"></div>
+            <div class="icon-label">My Computer</div>
+        </div>
+        
+        <div class="desktop-icon" data-window="about-me">
+            <div class="icon-image notepad-icon"></div>
+            <div class="icon-label">About Me.txt</div>
+        </div>
+        
+        <div class="desktop-icon" data-window="projects">
+            <div class="icon-image folder-icon"></div>
+            <div class="icon-label">Projects</div>
+        </div>
+        
+        <div class="desktop-icon" data-window="contact">
+            <div class="icon-image mail-icon"></div>
+            <div class="icon-label">Contact</div>
+        </div>
+        
+        <div class="desktop-icon" data-window="trading-calendar">
+            <div class="icon-image trading-icon"></div>
+            <div class="icon-label">交易老黄历</div>
+        </div>
+
+        <!-- Trading Calendar Window -->
+        <div class="window" id="trading-calendar">
+            <div class="window-header">
+                <div class="window-title">
+                    <span class="window-icon trading-icon"></span>
+                    交易老黄历 - Trading Calendar
+                </div>
+                <div class="window-controls">
+                    <button onclick="closeWindow('trading-calendar')" style="background: #c0c0c0; border: 1px solid; width: 16px; height: 14px; cursor: pointer;">×</button>
+                </div>
+            </div>
+            <div class="window-content" style="padding: 0;">
+                <div class="loading-container" id="loading-content">
+                    加载中... Loading 交易老黄历...
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Taskbar -->
+    <div class="taskbar">
+        <button class="start-button">
+            <span class="start-icon"></span>
+            Start
+        </button>
+        <div class="system-tray">
+            <span class="time" id="current-time"></span>
+        </div>
+    </div>
+
+    <script>
+        console.log('简化版页面 JavaScript 开始执行');
+
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM 已加载');
+
+            // 确保所有图标可见
+            const icons = document.querySelectorAll('.desktop-icon');
+            console.log('找到 ' + icons.length + ' 个图标');
+            
+            icons.forEach((icon, index) => {
+                const label = icon.querySelector('.icon-label').textContent;
+                console.log('图标 ' + (index + 1) + ': ' + label);
+                
+                // 强制设置可见
+                icon.style.display = 'block';
+                icon.style.visibility = 'visible';
+                icon.style.opacity = '1';
+
+                // 添加双击事件
+                icon.addEventListener('dblclick', function() {
+                    console.log('双击了: ' + label);
+                    
+                    if (icon.dataset.window === 'trading-calendar') {
+                        const window = document.getElementById('trading-calendar');
+                        window.style.display = 'block';
+                        console.log('打开了交易老黄历窗口');
+                        
+                        // 显示加载中
+                        const loadingDiv = document.getElementById('loading-content');
+                        loadingDiv.innerHTML = '🔄 加载中... Loading 交易老黄历...<br><br>正在从GitHub加载项目...';
+                        
+                        // 3秒后加载实际内容
+                        setTimeout(() => {
+                            const content = window.querySelector('.window-content');
+                            const iframe = document.createElement('iframe');
+                            iframe.src = '/laohuangli/index.html';
+                            iframe.style.width = '100%';
+                            iframe.style.height = '100%';
+                            iframe.style.border = 'none';
+                            
+                            // 监听iframe加载完成
+                            iframe.onload = function() {
+                                console.log('交易老黄历内容加载完成');
+                            };
+                            
+                            iframe.onerror = function() {
+                                console.log('交易老黄历内容加载失败');
+                                content.innerHTML = '<div style="padding: 20px; text-align: center; color: red;">❌ 加载失败<br>请检查网络连接</div>';
+                            };
+                            
+                            content.innerHTML = '';
+                            content.appendChild(iframe);
+                            console.log('开始加载交易老黄历iframe');
+                        }, 2000);
+                    } else {
+                        alert('打开了: ' + label);
+                    }
+                });
+
+                // 单击选中效果
+                icon.addEventListener('click', function() {
+                    // 清除其他图标选中状态
+                    icons.forEach(i => {
+                        i.style.background = 'rgba(255,0,0,0.1)';
+                    });
+                    // 设置当前图标选中
+                    icon.style.background = 'rgba(0,0,255,0.3)';
+                });
+            });
+
+            // 更新时钟
+            function updateClock() {
+                const now = new Date();
+                const timeString = now.toLocaleTimeString([], {
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+                document.getElementById('current-time').textContent = timeString;
+            }
+            updateClock();
+            setInterval(updateClock, 1000);
+
+            console.log('页面初始化完成');
+        });
+
+        // 关闭窗口函数
+        function closeWindow(windowId) {
+            const window = document.getElementById(windowId);
+            window.style.display = 'none';
+            console.log('关闭了窗口: ' + windowId);
+        }
+    </script>
+</body>
+</html>

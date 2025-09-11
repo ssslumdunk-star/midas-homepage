@@ -1,0 +1,10 @@
+# API配置文件包含敏感信息
+caifu/config.js
+
+# 临时文件
+*.tar.gz
+test_*
+
+# 系统文件
+.DS_Store
+Thumbs.db

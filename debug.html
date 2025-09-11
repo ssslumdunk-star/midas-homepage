@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug - Midas Desktop</title>
+    <style>
+        body {
+            font-family: 'MS Sans Serif', sans-serif;
+            background: #008080;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            color: white;
+        }
+        .desktop-icon {
+            position: absolute;
+            width: 64px;
+            text-align: center;
+            cursor: pointer;
+            color: white;
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.8);
+            border: 2px solid red;
+            background: rgba(255,0,0,0.1);
+            z-index: 1000;
+        }
+        .desktop-icon:nth-child(1) { top: 50px; left: 20px; }
+        .desktop-icon:nth-child(2) { top: 50px; left: 100px; }
+        .desktop-icon:nth-child(3) { top: 50px; left: 180px; }
+        .desktop-icon:nth-child(4) { top: 50px; left: 260px; }
+        .desktop-icon:nth-child(5) { top: 50px; left: 340px; }
+        
+        .icon-image {
+            width: 32px;
+            height: 32px;
+            margin: 0 auto 4px;
+            background: #ffcc00;
+            border: 1px solid #000;
+        }
+        .icon-label {
+            font-size: 11px;
+            line-height: 12px;
+        }
+    </style>
+</head>
+<body>
+    <h1>调试页面 - 带JavaScript的版本</h1>
+    
+    <div class="desktop-icon">
+        <div class="icon-image"></div>
+        <div class="icon-label">My Computer</div>
+    </div>
+    
+    <div class="desktop-icon">
+        <div class="icon-image"></div>
+        <div class="icon-label">About Me</div>
+    </div>
+    
+    <div class="desktop-icon">
+        <div class="icon-image"></div>
+        <div class="icon-label">Projects</div>
+    </div>
+    
+    <div class="desktop-icon">
+        <div class="icon-image"></div>
+        <div class="icon-label">Contact</div>
+    </div>
+    
+    <div class="desktop-icon">
+        <div class="icon-image"></div>
+        <div class="icon-label">交易老黄历</div>
+    </div>
+    
+    <div id="log" style="margin-top: 200px; background: #000; padding: 10px; font-family: monospace; font-size: 12px;">
+        <div>JavaScript日志:</div>
+    </div>
+
+    <script>
+        console.log('Debug script started');
+        
+        function log(message) {
+            const logDiv = document.getElementById('log');
+            const time = new Date().toLocaleTimeString();
+            logDiv.innerHTML += '<div>' + time + ': ' + message + '</div>';
+            console.log(message);
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            log('DOM loaded');
+            
+            const icons = document.querySelectorAll('.desktop-icon');
+            log('Found ' + icons.length + ' icons');
+            
+            icons.forEach((icon, index) => {
+                const label = icon.querySelector('.icon-label').textContent;
+                log('Icon ' + (index + 1) + ': ' + label);
+                
+                // 确保图标可见
+                icon.style.display = 'block';
+                icon.style.visibility = 'visible'; 
+                icon.style.opacity = '1';
+                
+                // 添加点击事件测试
+                icon.addEventListener('click', () => {
+                    log('Clicked: ' + label);
+                    icon.style.background = 'rgba(0,255,0,0.3)';
+                });
+            });
+            
+            log('All icons processed');
+        });
+        
+        // 每秒检查图标状态
+        setInterval(() => {
+            const icons = document.querySelectorAll('.desktop-icon');
+            let visibleCount = 0;
+            icons.forEach(icon => {
+                if (icon.style.display !== 'none' && icon.style.visibility !== 'hidden' && icon.style.opacity !== '0') {
+                    visibleCount++;
+                }
+            });
+            
+            if (visibleCount !== icons.length) {
+                log('WARNING: Only ' + visibleCount + '/' + icons.length + ' icons are visible!');
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

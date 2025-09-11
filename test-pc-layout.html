@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试PC版布局</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f0f0f0;
+        }
+        .test-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .debug-info {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        .success { background: #d4edda; border-color: #c3e6cb; }
+        .error { background: #f8d7da; border-color: #f5c6cb; }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🔧 PC版布局测试页面</h1>
+        <p>这个页面用来测试iframe-mode类的自动添加功能</p>
+        
+        <div class="debug-info" id="debug-info">
+            <h3>📊 检测信息</h3>
+            <div id="detection-results">正在检测...</div>
+        </div>
+        
+        <div class="test-container">
+            <h3>🎯 测试iframe加载</h3>
+            <p>下面的iframe应该自动启用PC版布局：</p>
+            <iframe 
+                src="/laohuangli/index.html" 
+                width="100%" 
+                height="600" 
+                style="border: 2px solid #007bff; border-radius: 8px;">
+            </iframe>
+        </div>
+    </div>
+
+    <script>
+        function runDetectionTest() {
+            const results = document.getElementById('detection-results');
+            const debugInfo = document.getElementById('debug-info');
+            
+            let html = '<ul>';
+            html += '<li><strong>窗口宽度:</strong> ' + window.innerWidth + 'px</li>';
+            html += '<li><strong>窗口高度:</strong> ' + window.innerHeight + 'px</li>';
+            html += '<li><strong>是否iframe:</strong> ' + (window.self !== window.top ? '是' : '否') + '</li>';
+            html += '<li><strong>宽度检测:</strong> ' + (window.innerWidth > 768 ? '通过 (>768px)' : '未通过 (<=768px)') + '</li>';
+            html += '<li><strong>User Agent:</strong> ' + navigator.userAgent + '</li>';
+            html += '</ul>';
+            
+            // 预测PC版布局是否会启用
+            const shouldActivate = (window.self !== window.top) || (window.innerWidth > 768);
+            html += '<div style="margin-top: 15px; padding: 10px; border-radius: 4px; ' + 
+                   (shouldActivate ? 'background: #d4edda; color: #155724;' : 'background: #f8d7da; color: #721c24;') + '">';
+            html += '<strong>预测结果:</strong> PC版布局应该 ' + (shouldActivate ? '启用' : '不启用');
+            html += '</div>';
+            
+            results.innerHTML = html;
+            
+            if (shouldActivate) {
+                debugInfo.className = 'debug-info success';
+            } else {
+                debugInfo.className = 'debug-info error';
+            }
+        }
+
+        // 运行检测
+        document.addEventListener('DOMContentLoaded', runDetectionTest);
+        
+        // 监听窗口大小变化
+        window.addEventListener('resize', runDetectionTest);
+        
+        console.log('=== 测试页面调试信息 ===');
+        console.log('当前窗口尺寸:', window.innerWidth + 'x' + window.innerHeight);
+        console.log('是否在iframe中:', window.self !== window.top);
+        console.log('应该启用PC版布局:', (window.self !== window.top) || (window.innerWidth > 768));
+    </script>
+</body>
+</html>

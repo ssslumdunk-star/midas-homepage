@@ -1,80 +1,77 @@
-# Midas's Windows 95 Style Homepage
+# 🖥️ Midas Win95 Homepage
 
-A nostalgic personal homepage designed to replicate the classic Windows 95 desktop experience.
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen)](https://ssslumdunk-star.github.io/midas-homepage/)
 
-## 🌐 Access
+一个怀旧的Windows 95风格个人主页，集成了股价百分位查看器和交易老黄历功能。
 
-- **External URL**: http://midas.opsignalplus.com
-- **Local URL**: http://localhost:3001
-- **Port**: 3001
+## 🌟 在线访问
 
-## 🎮 Features
+**主页地址**: [https://ssslumdunk-star.github.io/midas-homepage/](https://ssslumdunk-star.github.io/midas-homepage/)
 
-- **Authentic Windows 95 UI**: Complete with window chrome, taskbar, and start menu
-- **Interactive Desktop**: Double-click icons to open windows
-- **Draggable Windows**: Move windows around the desktop
-- **Window Controls**: Minimize, maximize, and close windows
-- **Start Menu**: Classic Windows 95 start button and menu
-- **System Tray**: Working clock display
-- **Boot Screen**: Nostalgic startup sequence
-- **Responsive Design**: Works on mobile devices
+## 🔧 本地部署配置
 
-## 🖱️ How to Use
+### 1. API配置
+为了使股价功能正常工作，需要创建API配置文件：
 
-1. **Double-click** desktop icons to open windows
-2. **Single-click** icons to select them
-3. **Drag** window title bars to move windows
-4. Use **window controls** (minimize, maximize, close)
-5. Click the **Start button** to access the start menu
-6. **Keyboard shortcuts**:
-   - `Ctrl+Alt+D`: Toggle desktop icons
-   - `F11`: Toggle fullscreen mode
+```bash
+# 创建 caifu/config.js 文件
+echo "window.PERPLEXITY_API_KEY = 'your-api-key-here';" > caifu/config.js
+```
 
-## 📁 File Structure
+### 2. 启动本地服务器
+```bash
+# Python 3
+python3 -m http.server 8004
+
+# Node.js (可选)
+npm install
+npm start
+```
+
+## ✨ 功能特色
+
+- 🖥️ **Win95风格界面**: 完美复刻经典Windows 95桌面体验
+- 📊 **实时股价数据**: 通过Perplexity AI获取准确的股票信息
+- 🔢 **Token消耗追踪**: 实时显示API使用情况
+- 📈 **股价百分位分析**: 1年、3年、5年历史数据对比
+- 📅 **交易老黄历**: 集成交易日历功能
+- 💻 **响应式设计**: 支持多种屏幕尺寸
+
+## 🎯 使用方法
+
+1. 访问主页后看到Win95桌面界面
+2. 双击"股价百分位"图标打开Caifu应用
+3. 输入美股代码（如 AAPL, MSFT, COIN）
+4. 查看实时股价和历史百分位数据
+5. 观察任务栏的token使用统计
+
+## 📁 项目结构
 
 ```
 midas-homepage/
-├── index.html      # Main HTML structure
-├── style.css       # Windows 95 styling
-├── script.js       # Interactive functionality
-├── server.js       # Node.js web server
-├── package.json    # Project configuration
-└── README.md       # This file
+├── index.html          # Win95主页面
+├── caifu/             # 股价百分位查看器
+│   ├── index.html
+│   ├── style.css
+│   ├── app.js
+│   └── config.js      # API配置（需手动创建）
+├── laohuangli/        # 交易老黄历
+└── DEPLOY.md          # 详细部署说明
 ```
 
-## 🚀 Running the Server
+## 🔒 安全说明
 
-```bash
-# Navigate to the project directory
-cd midas-homepage
+- API密钥通过独立配置文件管理
+- 配置文件已添加到`.gitignore`以保护敏感信息
+- 支持环境变量和配置文件两种方式
 
-# Start the server
-npm start
-# or
-node server.js
-```
+## 🤖 AI集成
 
-The server will start on port 3001 and be accessible at http://midas.opsignalplus.com
-
-## 🎨 Customization
-
-- Edit `index.html` to modify content and structure
-- Update `style.css` to change the visual appearance
-- Modify `script.js` to add new interactive features
-- Customize desktop icons and windows in the HTML
-
-## 🖥️ Browser Compatibility
-
-Works best in modern browsers with full CSS and JavaScript support:
-- Chrome/Chromium
-- Firefox
-- Safari
-- Edge
-
-## 📱 Mobile Support
-
-The homepage includes responsive design for mobile devices with adapted layouts and touch-friendly interactions.
+- **Perplexity AI**: 获取实时股票数据
+- **智能解析**: 自动处理JSON响应格式
+- **容错机制**: 多重API备选方案
+- **成本追踪**: 实时显示token消耗
 
 ---
 
-*Welcome to the nostalgic world of Windows 95! 🖥️*
+*🤖 本项目由 [Claude Code](https://claude.ai/code) 协助开发*

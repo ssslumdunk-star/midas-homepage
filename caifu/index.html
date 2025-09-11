@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>美股股价百分位查看器 - Caifu</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-chart-line"></i> 美股股价百分位查看器</h1>
+            <p class="subtitle">输入股票代码，查看当前股价在历史价格中的百分位排名</p>
+        </header>
+
+        <div class="search-section">
+            <div class="input-group">
+                <input type="text" id="stockSymbol" placeholder="输入股票代码（如：AAPL）" maxlength="10">
+                <button id="searchBtn" onclick="searchStock()">
+                    <i class="fas fa-search"></i>
+                    <span>查询</span>
+                </button>
+            </div>
+            <div class="examples">
+                <span>示例: </span>
+                <button class="example-btn" onclick="setExample('AAPL')">AAPL</button>
+                <button class="example-btn" onclick="setExample('MSFT')">MSFT</button>
+                <button class="example-btn" onclick="setExample('GOOGL')">GOOGL</button>
+                <button class="example-btn" onclick="setExample('TSLA')">TSLA</button>
+            </div>
+        </div>
+
+        <div id="loadingSection" class="loading-section" style="display: none;">
+            <div class="spinner"></div>
+            <p>正在获取股票数据...</p>
+        </div>
+
+        <div id="errorSection" class="error-section" style="display: none;">
+            <div class="error-content">
+                <i class="fas fa-exclamation-triangle"></i>
+                <p id="errorMessage"></p>
+                <button onclick="hideError()" class="retry-btn">重试</button>
+            </div>
+        </div>
+
+        <div id="resultSection" class="result-section" style="display: none;">
+            <div class="stock-info">
+                <div class="stock-header">
+                    <h2 id="stockName"></h2>
+                    <div class="current-price">
+                        <span id="currentPrice"></span>
+                        <span id="priceChange" class="price-change"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="percentile-grid">
+                <div class="percentile-card">
+                    <div class="period">1年</div>
+                    <div class="percentile-value" id="percentile1y">-</div>
+                    <div class="percentile-desc">百分位</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress1y"></div>
+                    </div>
+                </div>
+
+                <div class="percentile-card">
+                    <div class="period">3年</div>
+                    <div class="percentile-value" id="percentile3y">-</div>
+                    <div class="percentile-desc">百分位</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress3y"></div>
+                    </div>
+                </div>
+
+                <div class="percentile-card">
+                    <div class="period">5年</div>
+                    <div class="percentile-value" id="percentile5y">-</div>
+                    <div class="percentile-desc">百分位</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress5y"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-section">
+                <h3>历史价格统计</h3>
+                <div class="stats-grid" id="statsGrid">
+                    <!-- 动态生成统计信息 -->
+                </div>
+            </div>
+
+            <div class="interpretation">
+                <h3><i class="fas fa-lightbulb"></i> 结果解读</h3>
+                <div id="interpretationText"></div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h3><i class="fas fa-info-circle"></i> 说明</h3>
+            <ul>
+                <li><strong>百分位</strong>：当前股价在历史价格中的排名位置（0-100）</li>
+                <li><strong>50%以下</strong>：当前价格相对较低，可能是买入机会</li>
+                <li><strong>50%以上</strong>：当前价格相对较高，需要谨慎考虑</li>
+                <li><strong>数据来源</strong>：Alpha Vantage API，延迟约15分钟</li>
+            </ul>
+        </div>
+
+        <footer class="footer">
+            <p>&copy; 2025 Caifu - 仅供参考，投资有风险</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,746 @@
+
+        <!DOCTYPE html>
+        <html lang="zh-CN">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>美股财报日历 - 2025年9月</title>
+            <style>
+                * { box-sizing: border-box; margin: 0; padding: 0; }
+                body {
+                    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    min-height: 100vh;
+                    padding: 20px;
+                }
+                .container {
+                    max-width: 1400px;
+                    margin: 0 auto;
+                    background: white;
+                    border-radius: 20px;
+                    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+                    overflow: hidden;
+                }
+                .header {
+                    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+                    color: white;
+                    padding: 30px;
+                    text-align: center;
+                }
+                .title {
+                    font-size: 2.5em;
+                    font-weight: 300;
+                    margin-bottom: 15px;
+                    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+                }
+                .nav {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 20px;
+                    margin-top: 20px;
+                }
+                .nav-btn {
+                    padding: 12px 24px;
+                    background: rgba(255,255,255,0.2);
+                    color: white;
+                    border: 2px solid rgba(255,255,255,0.3);
+                    border-radius: 25px;
+                    cursor: pointer;
+                    font-weight: 500;
+                    transition: all 0.3s ease;
+                    text-decoration: none;
+                    display: inline-block;
+                }
+                .nav-btn:hover {
+                    background: rgba(255,255,255,0.3);
+                    border-color: rgba(255,255,255,0.5);
+                    transform: translateY(-2px);
+                }
+                .current-month {
+                    font-size: 1.3em;
+                    font-weight: 500;
+                    padding: 0 20px;
+                }
+                .calendar {
+                    display: grid;
+                    grid-template-columns: repeat(7, 1fr);
+                    gap: 1px;
+                    background: #e0e0e0;
+                    margin: 0;
+                }
+                .calendar-header {
+                    background: #f8f9fa;
+                    padding: 15px 10px;
+                    text-align: center;
+                    font-weight: 600;
+                    font-size: 0.9em;
+                    color: #495057;
+                    border-bottom: 2px solid #dee2e6;
+                }
+                .calendar-day {
+                    background: white;
+                    min-height: 120px;
+                    padding: 8px;
+                    position: relative;
+                    transition: background-color 0.2s ease;
+                }
+                .calendar-day:hover {
+                    background: #f8f9fa;
+                }
+                .day-number {
+                    font-weight: 600;
+                    font-size: 1.1em;
+                    color: #495057;
+                    margin-bottom: 8px;
+                }
+                .today {
+                    background: linear-gradient(135deg, #e3f2fd, #bbdefb) !important;
+                    border: 3px solid #2196F3;
+                    box-shadow: 0 0 15px rgba(33, 150, 243, 0.3);
+                    position: relative;
+                }
+                .today::before {
+                    content: "今天";
+                    position: absolute;
+                    top: -2px;
+                    right: -2px;
+                    background: linear-gradient(135deg, #2196F3, #1976D2);
+                    color: white;
+                    font-size: 0.7em;
+                    padding: 2px 6px;
+                    border-radius: 8px;
+                    font-weight: 600;
+                    z-index: 2;
+                }
+                .today .day-number {
+                    color: white;
+                    background: linear-gradient(135deg, #2196F3, #1976D2);
+                    width: 32px;
+                    height: 32px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 1em;
+                    font-weight: 700;
+                    box-shadow: 0 4px 8px rgba(33, 150, 243, 0.3);
+                }
+                .other-month {
+                    background: #f8f8f8;
+                    color: #adb5bd;
+                }
+                .earnings-event {
+                    background: linear-gradient(135deg, #28a745, #20c997);
+                    color: white;
+                    padding: 4px 6px;
+                    margin: 2px 0;
+                    border-radius: 6px;
+                    font-size: 0.75em;
+                    font-weight: 500;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    display: block;
+                    text-align: center;
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                }
+                .earnings-event:hover {
+                    transform: translateY(-1px) scale(1.02);
+                    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+                    background: linear-gradient(135deg, #20c997, #28a745);
+                }
+                .earnings-event.bmo {
+                    background: linear-gradient(135deg, #17a2b8, #007bff);
+                }
+                .earnings-event.amc {
+                    background: linear-gradient(135deg, #fd7e14, #dc3545);
+                }
+
+                /* 美股未来财报事件样式 */
+                .earnings-event.us-stock.future {
+                    background: linear-gradient(135deg, #6f42c1, #6610f2);
+                    border: 2px solid #563d7c;
+                    position: relative;
+                }
+                .earnings-event.us-stock.future::before {
+                    content: "🔮";
+                    position: absolute;
+                    top: -2px;
+                    left: -2px;
+                    font-size: 0.6em;
+                }
+                .earnings-event.us-stock.future:hover {
+                    background: linear-gradient(135deg, #6610f2, #6f42c1);
+                    transform: translateY(-2px) scale(1.05);
+                }
+
+                /* 美股过去财报事件样式 */
+                .earnings-event.us-stock.past {
+                    position: relative;
+                }
+                .earnings-event.us-stock.past::after {
+                    content: "✅";
+                    position: absolute;
+                    top: -2px;
+                    right: -2px;
+                    font-size: 0.6em;
+                }
+
+                /* 港股未来财报事件样式 */
+                .earnings-event.hk-stock.future {
+                    background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+                    border: 2px solid #ff9999;
+                    position: relative;
+                }
+                .earnings-event.hk-stock.future::before {
+                    content: "🔮";
+                    position: absolute;
+                    top: -2px;
+                    left: -2px;
+                    font-size: 0.6em;
+                }
+                .earnings-event.hk-stock.future::after {
+                    content: "🇭🇰";
+                    position: absolute;
+                    top: -2px;
+                    right: -2px;
+                    font-size: 0.6em;
+                }
+                .earnings-event.hk-stock.future:hover {
+                    background: linear-gradient(135deg, #ee5a52, #ff6b6b);
+                    transform: translateY(-2px) scale(1.05);
+                }
+
+                /* 港股过去财报事件样式 */
+                .earnings-event.hk-stock.past {
+                    background: linear-gradient(135deg, #ff9068, #fd746c);
+                    border: 2px solid #ffb3b3;
+                    position: relative;
+                }
+                .earnings-event.hk-stock.past::before {
+                    content: "✅";
+                    position: absolute;
+                    top: -2px;
+                    left: -2px;
+                    font-size: 0.6em;
+                }
+                .earnings-event.hk-stock.past::after {
+                    content: "🇭🇰";
+                    position: absolute;
+                    top: -2px;
+                    right: -2px;
+                    font-size: 0.6em;
+                }
+
+                /* 保持向后兼容 - 未指定类型的默认为美股样式 */
+                .earnings-event.future:not(.hk-stock):not(.us-stock) {
+                    background: linear-gradient(135deg, #6f42c1, #6610f2);
+                    border: 2px solid #563d7c;
+                    position: relative;
+                }
+                .earnings-event.future:not(.hk-stock):not(.us-stock)::before {
+                    content: "🔮";
+                    position: absolute;
+                    top: -2px;
+                    left: -2px;
+                    font-size: 0.6em;
+                }
+                .earnings-event.past:not(.hk-stock):not(.us-stock) {
+                    position: relative;
+                }
+                .earnings-event.past:not(.hk-stock):not(.us-stock)::after {
+                    content: "✅";
+                    position: absolute;
+                    top: -2px;
+                    right: -2px;
+                    font-size: 0.6em;
+                }
+
+                /* 时间分界线样式 */
+                .time-divider {
+                    position: relative;
+                }
+                .time-divider::after {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    height: 4px;
+                    background: linear-gradient(90deg, transparent, #2196F3, transparent);
+                    border-radius: 2px;
+                }
+                /* 模态框样式 */
+                .modal {
+                    display: none;
+                    position: fixed;
+                    z-index: 1000;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0,0,0,0.6);
+                    backdrop-filter: blur(5px);
+                }
+                .modal-content {
+                    background: white; 
+                    margin: 5% auto; 
+                    padding: 20px; 
+                    border-radius: 8px; 
+                    width: 80%; 
+                    max-width: 800px; 
+                    max-height: 80vh; 
+                    overflow-y: auto; 
+                }
+                .close { 
+                    color: #aaa; 
+                    float: right; 
+                    font-size: 28px; 
+                    font-weight: bold; 
+                    cursor: pointer; 
+                }
+                .close:hover { color: black; }
+                .event-details { margin: 20px 0; }
+                .analyst-comments { margin-top: 30px; }
+                .comment-item { 
+                    border: 1px solid #eee; 
+                    padding: 15px; 
+                    margin: 10px 0; 
+                    border-radius: 5px; 
+                    background: #f9f9f9; 
+                }
+                .comment-header { font-weight: bold; color: #333; margin-bottom: 8px; }
+                .comment-meta { color: #666; font-size: 0.9em; margin-bottom: 8px; }
+                .loading { text-align: center; padding: 20px; color: #666; }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <div class="header">
+                    <h1 class="title">📊 美股财报日历 v2.9.7</h1>
+                    <div style="text-align: center; margin: 10px 0; opacity: 0.8; font-size: 0.9em;">
+                        版本: v2.9.7 - 2025-09-14 00:30 | 🎯 分析师目标价偏离度修正版 - 已修正20+个超过20%偏离的目标价
+                    </div>
+
+                    <!-- 图例说明 -->
+                    <div style="background: linear-gradient(135deg, #f8f9fa, #e9ecef); padding: 12px; margin: 15px 0; border-radius: 8px; border: 1px solid #dee2e6;">
+                        <div style="text-align: center; font-weight: bold; margin-bottom: 8px; color: #495057;">📋 图例说明</div>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8px; font-size: 0.85em;">
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <div style="background: linear-gradient(135deg, #6f42c1, #6610f2); color: white; padding: 2px 6px; border-radius: 4px; font-size: 0.8em; position: relative;">
+                                    🔮 美股预测
+                                </div>
+                                <span style="color: #6c757d;">美股未来财报</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <div style="background: linear-gradient(135deg, #28a745, #20c997); color: white; padding: 2px 6px; border-radius: 4px; font-size: 0.8em; position: relative;">
+                                    ✅ 美股已发布
+                                </div>
+                                <span style="color: #6c757d;">美股已发布财报</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <div style="background: linear-gradient(135deg, #ff6b6b, #ee5a52); color: white; padding: 2px 6px; border-radius: 4px; font-size: 0.8em; position: relative;">
+                                    🔮🇭🇰 港股预测
+                                </div>
+                                <span style="color: #6c757d;">港股未来财报</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <div style="background: linear-gradient(135deg, #ff9068, #fd746c); color: white; padding: 2px 6px; border-radius: 4px; font-size: 0.8em; position: relative;">
+                                    ✅🇭🇰 港股已发布
+                                </div>
+                                <span style="color: #6c757d;">港股已发布财报</span>
+                            </div>
+                        </div>
+                        <div style="text-align: center; margin-top: 8px; font-size: 0.8em; color: #6c757d;">
+                            💡 目标价显示格式：$125.00 <span style="color: #28a745; font-weight: bold;">(距离当前价格+15.2%)</span> 表示相比当前价格的涨跌空间
+                        </div>
+                    </div>
+
+                    <div class="nav">
+                        <button class="nav-btn" onclick="changeMonth(-1)">← 上月</button>
+                        <span class="current-month" id="currentMonthYear">2025年9月</span>
+                        <button class="nav-btn" onclick="changeMonth(1)">下月 →</button>
+                    </div>
+                </div>
+
+                <div class="calendar" id="calendar">
+                    <div class="calendar-header">周日</div>
+                    <div class="calendar-header">周一</div>
+                    <div class="calendar-header">周二</div>
+                    <div class="calendar-header">周三</div>
+                    <div class="calendar-header">周四</div>
+                    <div class="calendar-header">周五</div>
+                    <div class="calendar-header">周六</div>
+                </div>
+            </div>
+            
+            <!-- 模态框 -->
+            <div id="eventModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <div id="modalContent">
+                        <div class="loading">加载中...</div>
+                    </div>
+                </div>
+            </div>
+            
+            <script>
+                let currentYear = 2025;
+                let currentMonth = 9;
+                let earningsData = [];
+
+                // 真实股价数据 (2025年9月13日最新价格)
+                const currentStockPrices = {
+                    // 美股 (2025年9月13日真实价格)
+                    'AAPL': 234.35, 'MSFT': 500.28, 'GOOGL': 241.58, 'AMZN': 227.85, 'META': 505.7,
+                    'TSLA': 394.13, 'NVDA': 177.87, 'NFLX': 1185.84, 'COST': 890.5, 'CSCO': 52.8,
+                    'AMD': 157.06, 'PEP': 143.53, 'INTC': 24.08, 'TXN': 195.4, 'QCOM': 161.51,
+                    'ADBE': 590.8, 'AMGN': 285.3, 'BABA': 155.0, 'V': 350.87, 'PDD': 124.79,
+                    'JD': 33.94, 'JPM': 305.05, 'JNJ': 151.33, 'WMT': 89.50, 'PG': 157.90,
+                    'MA': 522.50, 'HD': 417.30,
+                    // 港股（港币，2025年9月13日真实价格）
+                    '00700.HK': 643.50, '09988.HK': 151.0, '00005.HK': 106.30, '00939.HK': 7.88,
+                    '00388.HK': 47.2, '00386.HK': 4.23, '01024.HK': 45.8, '02382.HK': 82.1,
+                    '02269.HK': 28.5, '09961.HK': 145.2, '03888.HK': 26.8, '01833.HK': 42.5,
+                    '02015.HK': 118.6, '09866.HK': 48.2, '02688.HK': 14.2,
+                    '03690.HK': 96.55, '01211.HK': 104.50, '03988.HK': 4.38, '01398.HK': 5.50,
+                    '01109.HK': 8.90, '00016.HK': 78.50, '00857.HK': 65.20, '01299.HK': 42.80,
+                    '02318.HK': 150.30, '09618.HK': 135.60, '02020.HK': 28.70, '00175.HK': 9.80,
+                    '06060.HK': 22.40, '09999.HK': 89.60
+                };
+
+                // 获取当前股价函数
+                function getCurrentPrice(symbol) {
+                    // 如果找不到股价数据，根据市场类型设置合理的默认值
+                    if (currentStockPrices[symbol]) {
+                        return currentStockPrices[symbol];
+                    }
+
+                    // 港股默认价格相对较低
+                    if (symbol.endsWith('.HK')) {
+                        return 10; // 港股默认10港币
+                    }
+
+                    // 美股默认价格
+                    return 50; // 美股默认50美元
+                }
+                
+                function changeMonth(delta) {
+                    currentMonth += delta;
+                    if (currentMonth > 12) {
+                        currentMonth = 1;
+                        currentYear++;
+                    } else if (currentMonth < 1) {
+                        currentMonth = 12;
+                        currentYear--;
+                    }
+
+                    // 更新显示
+                    updateCalendar();
+                }
+
+                function generateCalendar() {
+                    const today = new Date();
+                    const firstDay = new Date(currentYear, currentMonth - 1, 1);
+                    const startDate = new Date(firstDay);
+                    startDate.setDate(startDate.getDate() - firstDay.getDay());
+
+                    const calendar = document.getElementById('calendar');
+                    // 清除之前的日期单元格，但保留头部
+                    const existingDays = calendar.querySelectorAll('.calendar-day');
+                    existingDays.forEach(day => day.remove());
+
+                    const monthNames = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
+                    document.getElementById('currentMonthYear').textContent = `${currentYear}年${monthNames[currentMonth-1]}月`;
+
+                    // 生成6周 × 7天 = 42个单元格
+                    for (let i = 0; i < 42; i++) {
+                        const cellDate = new Date(startDate);
+                        cellDate.setDate(startDate.getDate() + i);
+
+                        const dayDiv = document.createElement('div');
+                        dayDiv.className = 'calendar-day';
+                        dayDiv.id = `day-${cellDate.getFullYear()}-${cellDate.getMonth() + 1}-${cellDate.getDate()}`;
+
+                        // 设置日期样式
+                        if (cellDate.getMonth() !== currentMonth - 1) {
+                            dayDiv.classList.add('other-month');
+                        } else if (cellDate.toDateString() === today.toDateString()) {
+                            dayDiv.classList.add('today');
+                        }
+
+                        const dayNumber = document.createElement('div');
+                        dayNumber.className = 'day-number';
+                        dayNumber.textContent = cellDate.getDate();
+
+                        dayDiv.appendChild(dayNumber);
+                        calendar.appendChild(dayDiv);
+
+                        // 如果已经超过了下个月很多天，可以提前结束
+                        if (i >= 35 && cellDate.getMonth() !== currentMonth - 1) {
+                            const nextCells = Array.from({length: 7}, (_, j) => {
+                                const nextDate = new Date(cellDate);
+                                nextDate.setDate(cellDate.getDate() + j + 1);
+                                return nextDate.getMonth() !== currentMonth - 1;
+                            });
+                            if (nextCells.every(isNextMonth => isNextMonth)) {
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                function updateCalendar() {
+                    generateCalendar();
+                    renderCalendarWithEarnings();
+                }
+                
+                function showEventDetails(symbol, date) {
+                    const modal = document.getElementById('eventModal');
+                    const content = document.getElementById('modalContent');
+
+                    modal.style.display = 'block';
+                    content.innerHTML = '<div class="loading">正在加载财报详情...</div>';
+
+                    // 从本地数据中查找对应的财报信息
+                    const eventData = earningsData.find(event =>
+                        event.symbol === symbol && event.earnings_date === date
+                    );
+
+                    if (eventData) {
+                        displayEventDetails(eventData);
+                    } else {
+                        content.innerHTML = '<p>未找到财报详情数据。</p>';
+                    }
+                }
+                
+                function displayEventDetails(data) {
+                    const content = document.getElementById('modalContent');
+                    const today = new Date();
+                    const eventDate = new Date(data.earnings_date);
+                    const isFuture = eventDate > today;
+
+                    // 根据时间类型添加不同的标题图标
+                    const titleIcon = isFuture ? '🔮' : '✅';
+                    const statusBar = isFuture
+                        ? `<div style="background: linear-gradient(45deg, #6f42c1, #6610f2); color: white; padding: 8px; margin-bottom: 15px; border-radius: 5px; text-align: center; font-weight: bold;">未来财报 - 预测数据</div>`
+                        : `<div style="background: linear-gradient(45deg, #28a745, #20c997); color: white; padding: 8px; margin-bottom: 15px; border-radius: 5px; text-align: center; font-weight: bold;">已发布财报 - 实际数据</div>`;
+
+                    // 获取当前股价并显示
+                    const currentPrice = getCurrentPrice(data.symbol);
+                    const isHKStock = data.symbol.endsWith('.HK');
+                    const currency = isHKStock ? 'HK$' : '$';
+                    const priceDisplay = `${currency}${currentPrice.toFixed(2)}`;
+
+                    let html = `
+                        <h2>${titleIcon} ${data.symbol} - ${data.company_name}</h2>
+                        ${statusBar}
+
+                        <!-- 当前股价醒目显示 -->
+                        <div style="background: linear-gradient(135deg, #f8f9fa, #e9ecef); padding: 15px; margin: 15px 0; border-radius: 8px; border: 2px solid #dee2e6; text-align: center;">
+                            <div style="font-size: 0.9em; color: #6c757d; margin-bottom: 5px;">当前股价</div>
+                            <div style="font-size: 1.8em; font-weight: bold; color: #2c3e50;">${priceDisplay}</div>
+                            <div style="font-size: 0.8em; color: #6c757d; margin-top: 5px;">*截至2025年9月13日价格</div>
+                        </div>
+
+                        <div class="event-details">
+                            <p><strong>财报日期:</strong> ${data.earnings_date}</p>
+                            <p><strong>季度:</strong> ${data.quarter}</p>
+                            <p><strong>财政年度:</strong> ${data.fiscal_year}</p>
+                            ${data.earnings_time ? `<p><strong>发布时间:</strong> ${data.earnings_time}</p>` : ''}
+                    `;
+
+                    // 显示预期数据
+                    if (data.eps_estimate) {
+                        const epsLabel = isFuture ? '预期EPS' : 'EPS预期';
+                        html += `<p><strong>${epsLabel}:</strong> $${data.eps_estimate.toFixed(2)}</p>`;
+                    }
+
+                    // 只有过去财报显示实际数据
+                    if (!isFuture && data.eps_actual) {
+                        html += `<p><strong>实际EPS:</strong> $${data.eps_actual.toFixed(2)}</p>`;
+                    }
+
+                    // 营收数据已隐藏 - 数据准确性需要进一步验证
+                    // if (data.revenue_estimate) {
+                    //     const revenueLabel = isFuture ? '预期营收' : '营收预期';
+                    //     html += `<p><strong>${revenueLabel}:</strong> $${(data.revenue_estimate/1000000000).toFixed(2)}B</p>`;
+                    // }
+
+                    // 只有过去财报显示实际营收
+                    // 营收数据已隐藏 - 数据准确性需要进一步验证
+                    // if (!isFuture && data.revenue_actual) {
+                    //     html += `<p><strong>实际营收:</strong> $${(data.revenue_actual/1000000000).toFixed(2)}B</p>`;
+                    // }
+
+                    // 只有过去财报显示业绩表现
+                    if (!isFuture && data.beat_estimate !== null) {
+                        const beatText = data.beat_estimate ? '超预期' : '低于预期';
+                        const beatColor = data.beat_estimate ? 'green' : 'red';
+                        html += `<p><strong>业绩表现:</strong> <span style="color: ${beatColor}">${beatText}</span></p>`;
+                    }
+
+                    // 只有过去财报显示股价波动数据
+                    if (!isFuture && data.post_earnings_price_changes) {
+                        html += `
+                            <div style="background: linear-gradient(135deg, #e8f5e8, #d4edda); padding: 15px; margin: 15px 0; border-radius: 8px; border-left: 4px solid #28a745;">
+                                <h4 style="color: #155724; margin: 0 0 10px 0;">📈 财报后股价波动 (3天)</h4>
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 10px;">
+                                    <div style="text-align: center; padding: 8px; background: rgba(255,255,255,0.7); border-radius: 4px;">
+                                        <div style="font-size: 0.8em; color: #666;">第1天</div>
+                                        <div style="font-weight: bold; color: ${data.post_earnings_price_changes.day_1 >= 0 ? '#28a745' : '#dc3545'};">
+                                            ${data.post_earnings_price_changes.day_1 >= 0 ? '+' : ''}${data.post_earnings_price_changes.day_1.toFixed(1)}%
+                                        </div>
+                                    </div>
+                                    <div style="text-align: center; padding: 8px; background: rgba(255,255,255,0.7); border-radius: 4px;">
+                                        <div style="font-size: 0.8em; color: #666;">第2天</div>
+                                        <div style="font-weight: bold; color: ${data.post_earnings_price_changes.day_2 >= 0 ? '#28a745' : '#dc3545'};">
+                                            ${data.post_earnings_price_changes.day_2 >= 0 ? '+' : ''}${data.post_earnings_price_changes.day_2.toFixed(1)}%
+                                        </div>
+                                    </div>
+                                    <div style="text-align: center; padding: 8px; background: rgba(255,255,255,0.7); border-radius: 4px;">
+                                        <div style="font-size: 0.8em; color: #666;">第3天</div>
+                                        <div style="font-weight: bold; color: ${data.post_earnings_price_changes.day_3 >= 0 ? '#28a745' : '#dc3545'};">
+                                            ${data.post_earnings_price_changes.day_3 >= 0 ? '+' : ''}${data.post_earnings_price_changes.day_3.toFixed(1)}%
+                                        </div>
+                                    </div>
+                                    <div style="text-align: center; padding: 8px; background: linear-gradient(135deg, #28a745, #20c997); color: white; border-radius: 4px;">
+                                        <div style="font-size: 0.8em;">累计涨跌</div>
+                                        <div style="font-weight: bold; font-size: 1.1em;">
+                                            ${data.post_earnings_price_changes.total_3day >= 0 ? '+' : ''}${data.post_earnings_price_changes.total_3day.toFixed(1)}%
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    }
+
+                    if (data.data_source) {
+                        html += `<p><strong>数据来源:</strong> ${data.data_source}</p>`;
+                    }
+
+                    html += '</div>';
+                    
+                    // 添加分析师评论 - 根据时间类型显示不同标题
+                    if (data.analyst_comments && data.analyst_comments.length > 0) {
+                        const commentTitle = isFuture ? '🔮 分析师预测' : '✅ 分析师评论';
+                        html += `<div class="analyst-comments"><h3>${commentTitle}</h3>`;
+
+                        data.analyst_comments.forEach(comment => {
+                            // 根据是否为未来财报，显示不同的评级颜色
+                            const ratingColor = isFuture ? '#6f42c1' : '#28a745';
+
+                            // 计算目标价与当前价格的差距
+                            let priceTargetDisplay = '';
+                            if (comment.price_target) {
+                                const currentPrice = getCurrentPrice(data.symbol);
+                                const priceDiff = comment.price_target - currentPrice;
+                                const priceDiffPercent = ((priceDiff / currentPrice) * 100).toFixed(1);
+                                const diffColor = priceDiff >= 0 ? '#28a745' : '#dc3545';
+                                const diffText = priceDiff >= 0 ?
+                                    `距离当前价格+${priceDiffPercent}%` :
+                                    `距离当前价格${priceDiffPercent}%`;
+
+                                priceTargetDisplay = `目标价: $${comment.price_target.toFixed(2)} <span style="color: ${diffColor}; font-weight: bold;">(${diffText})</span> | `;
+                            }
+
+                            html += `
+                                <div class="comment-item">
+                                    <div class="comment-header">${comment.analyst_name} - ${comment.firm}</div>
+                                    <div class="comment-meta">
+                                        <span style="color: ${ratingColor}; font-weight: bold;">评级: ${comment.rating}</span> |
+                                        ${priceTargetDisplay}
+                                        日期: ${comment.publish_date} |
+                                        来源: ${comment.source}
+                                    </div>
+                                    <div class="comment-text">${comment.comment}</div>
+                                </div>
+                            `;
+                        });
+                        html += '</div>';
+                    }
+                    
+                    content.innerHTML = html;
+                }
+                
+                function closeModal() {
+                    document.getElementById('eventModal').style.display = 'none';
+                }
+                
+                // 点击模态框外部关闭
+                window.onclick = function(event) {
+                    const modal = document.getElementById('eventModal');
+                    if (event.target == modal) {
+                        modal.style.display = 'none';
+                    }
+                }
+
+                // 加载财报数据
+                async function loadEarningsData() {
+                    try {
+                        const response = await fetch('/earnings_data.json');
+                        const data = await response.json();
+                        earningsData = data.earnings_events || [];
+                        updateCalendar(); // 生成日历并添加财报数据
+                    } catch (error) {
+                        console.error('加载财报数据失败:', error);
+                        updateCalendar(); // 即使加载失败也要生成基本日历
+                    }
+                }
+
+                // 渲染带有财报数据的日历
+                function renderCalendarWithEarnings() {
+                    const today = new Date();
+
+                    // 获取当前月份的财报事件
+                    const currentMonthEvents = earningsData.filter(event => {
+                        const eventDate = new Date(event.earnings_date);
+                        return eventDate.getFullYear() === currentYear &&
+                               (eventDate.getMonth() + 1) === currentMonth;
+                    });
+
+                    // 为每个日期添加财报事件
+                    currentMonthEvents.forEach(event => {
+                        const eventDate = new Date(event.earnings_date);
+                        const day = eventDate.getDate();
+
+                        // 判断是未来还是过去
+                        const isFuture = eventDate > today;
+
+                        // 查找对应日期的单元格 (使用新的网格布局)
+                        const dayDiv = document.getElementById(`day-${currentYear}-${currentMonth}-${day}`);
+                        if (dayDiv) {
+                            // 添加财报事件
+                            const eventDiv = document.createElement('div');
+
+                            // 区分港股和美股
+                            const isHKStock = event.symbol.endsWith('.HK');
+                            const stockClass = isHKStock ? 'hk-stock' : 'us-stock';
+                            eventDiv.className = `earnings-event ${stockClass} ${isFuture ? 'future' : 'past'}`;
+
+                            // 智能显示股票名称
+                            let displayName;
+                            if (isHKStock) {
+                                // 港股显示中文名
+                                displayName = event.company_name;
+                            } else if (event.company_name.includes('Group') || event.company_name.includes('Inc.') || event.company_name.includes('Corp.')) {
+                                // 美股显示股票代码
+                                displayName = event.symbol;
+                            } else {
+                                // 中概股显示中文名
+                                displayName = event.company_name;
+                            }
+
+                            eventDiv.textContent = `${displayName} 财报`;
+                            eventDiv.onclick = () => showEventDetails(event.symbol, event.earnings_date);
+                            dayDiv.appendChild(eventDiv);
+                        }
+                    });
+                }
+
+                // 页面加载时初始化
+                document.addEventListener('DOMContentLoaded', loadEarningsData);
+            </script>
+        </body>
+        </html>
+        

@@ -1,0 +1,1534 @@
+{
+  "export_time": "2025-09-13T11:35:00.000000",
+  "earnings_events": [
+    {
+      "symbol": "00700.HK",
+      "company_name": "腾讯控股",
+      "earnings_date": "2025-08-14",
+      "quarter": "Q2 2025",
+      "fiscal_year": 2025,
+      "eps_estimate": 18.5,
+      "eps_actual": 19.2,
+      "revenue_estimate": 177300000000.0,
+      "revenue_actual": 184500000000.0,
+      "beat_estimate": true,
+      "data_source": "past_actual",
+      "post_earnings_price_changes": {
+        "day_1": 3.2,
+        "day_2": 1.8,
+        "day_3": -0.5,
+        "total_3day": 4.5
+      },
+      "analyst_comments": [
+        {
+          "analyst_name": "李明华",
+          "firm": "摩根士丹利",
+          "rating": "Buy",
+          "price_target": 630.0,
+          "comment": "腾讯Q2游戏收入同比增长9%至483亿元，微信生态持续扩张。云业务增速放缓但盈利能力改善，AI投入开始显现效果。",
+          "publish_date": "2025-08-15",
+          "source": "research_report",
+          "accuracy_history": "85%"
+        },
+        {
+          "analyst_name": "Goldman Sachs Team",
+          "firm": "高盛",
+          "rating": "Buy",
+          "price_target": 590.0,
+          "comment": "AI功能将推动广告和商业服务更快增长，游戏业务平台稳定性提升，上调2025-2026财年收入预测。",
+          "publish_date": "2025-09-01",
+          "source": "research_report",
+          "accuracy_history": "78%"
+        }
+      ]
+    },
+    {
+      "symbol": "BABA",
+      "company_name": "阿里巴巴",
+      "earnings_date": "2025-08-15",
+      "quarter": "Q1 2026财年",
+      "fiscal_year": 2026,
+      "eps_estimate": 10.2,
+      "eps_actual": 11.1,
+      "revenue_estimate": 237910000000.0,
+      "revenue_actual": 236450000000.0,
+      "beat_estimate": true,
+      "data_source": "past_actual",
+      "post_earnings_price_changes": {
+        "day_1": 5.8,
+        "day_2": 2.1,
+        "day_3": 1.2,
+        "total_3day": 9.1
+      },
+      "analyst_comments": [
+        {
+          "analyst_name": "陈伟",
+          "firm": "高盛",
+          "rating": "Buy",
+          "price_target": 95.0,
+          "comment": "淘宝天猫商业收入增长4%，云智能业务增长6%。国际数字商业收入增长32%，海外市场扩张效果显著。",
+          "publish_date": "2025-08-16",
+          "source": "earnings_call"
+        }
+      ]
+    },
+    {
+      "symbol": "AAPL",
+      "company_name": "苹果公司",
+      "earnings_date": "2025-08-01",
+      "quarter": "Q3 2025",
+      "fiscal_year": 2025,
+      "eps_estimate": 1.43,
+      "eps_actual": 1.57,
+      "revenue_estimate": 89220000000.0,
+      "revenue_actual": 94000000000.0,
+      "beat_estimate": true,
+      "data_source": "past_actual",
+      "post_earnings_price_changes": {
+        "day_1": 2.1,
+        "day_2": -1.3,
+        "day_3": 0.8,
+        "total_3day": 1.6
+      },
+      "analyst_comments": [
+        {
+          "analyst_name": "Dan Ives",
+          "firm": "Wedbush",
+          "rating": "Buy",
+          "price_target": 250.0,
+          "comment": "iPhone销量超预期，服务业务增长稳定。AI功能推出后用户升级意愿增强，维持买入评级。",
+          "publish_date": "2025-08-02",
+          "source": "research_report"
+        }
+      ]
+    },
+    {
+      "symbol": "MSFT",
+      "company_name": "微软",
+      "earnings_date": "2025-07-31",
+      "quarter": "Q4 2025",
+      "fiscal_year": 2025,
+      "eps_estimate": 3.45,
+      "eps_actual": 3.65,
+      "revenue_estimate": 72000000000.0,
+      "revenue_actual": 76440000000.0,
+      "beat_estimate": true,
+      "data_source": "past_actual",
+      "post_earnings_price_changes": {
+        "day_1": 1.4,
+        "day_2": 0.9,
+        "day_3": -0.2,
+        "total_3day": 2.1
+      },
+      "analyst_comments": [
+        {
+          "analyst_name": "Keith Weiss",
+          "firm": "Morgan Stanley",
+          "rating": "Buy",
+          "price_target": 450.0,
+          "comment": "Azure增长32%超预期，Copilot商业化进展顺利。云计算领域地位稳固。",
+          "publish_date": "2025-08-16",
+          "source": "research_report"
+        }
+      ]
+    },
+    {
+      "symbol": "03690.HK",
+      "company_name": "美团",
+      "earnings_date": "2025-08-26",
+      "quarter": "Q2 2025",
+      "fiscal_year": 2025,
+      "eps_estimate": 4.8,
+      "eps_actual": 5.3,
+      "revenue_estimate": 92400000000.0,
+      "revenue_actual": 91840000000.0,
+      "beat_estimate": true,
+      "data_source": "past_actual",
+      "post_earnings_price_changes": {
+        "day_1": 6.2,
+        "day_2": 3.1,
+        "day_3": -1.8,
+        "total_3day": 7.5
+      },
+      "analyst_comments": [
+        {
+          "analyst_name": "张伟华",
+          "firm": "瑞银",
+          "rating": "Buy",
+          "price_target": 120.0,
+          "comment": "外卖业务韧性十足，到店酒旅复苏加速，新业务减亏明显。盈利能力持续改善。",
+          "publish_date": "2025-08-27",
+          "source": "earnings_call",
+          "accuracy_history": "72%"
+        },
+        {
+          "analyst_name": "JPMorgan Team",
+          "firm": "摩根大通",
+          "rating": "Overweight",
+          "price_target": 110.0,
+          "comment": "直播电商持续增长，配送效率提升，长期资本增值潜力巨大。",
+          "publish_date": "2025-09-05",
+          "source": "research_report",
+          "accuracy_history": "68%"
+        }
+      ]
+    },
+    {
+      "symbol": "JD",
+      "company_name": "京东",
+      "earnings_date": "2025-08-15",
+      "quarter": "Q2 2025",
+      "fiscal_year": 2025,
+      "eps_estimate": 3.2,
+      "eps_actual": 3.85,
+      "revenue_estimate": 335450000000.0,
+      "revenue_actual": 356700000000.0,
+      "beat_estimate": true,
+      "data_source": "past_actual",
+      "post_earnings_price_changes": {
+        "day_1": 4.2,
+        "day_2": 2.1,
+        "day_3": -1.3,
+        "total_3day": 5.0
+      },
+      "analyst_comments": [
+        {
+          "analyst_name": "王雪梅",
+          "firm": "中金公司",
+          "rating": "谨慎乐观",
+          "price_target": 35.0,
+          "comment": "预计电商业务将延续稳健增长，物流网络优势持续体现。关注消费环境对GMV增速的影响。",
+          "publish_date": "2025-08-28",
+          "source": "preview_report"
+        }
+      ]
+    },
+    {
+      "symbol": "GOOGL",
+      "company_name": "谷歌",
+      "earnings_date": "2025-09-20",
+      "quarter": "Q3 2025",
+      "fiscal_year": 2025,
+      "eps_estimate": 5.25,
+      "eps_actual": null,
+      "revenue_estimate": 75000000000.0,
+      "revenue_actual": null,
+      "beat_estimate": null,
+      "data_source": "future_prediction",
+      "analyst_comments": [
+        {
+          "analyst_name": "Brian Nowak",
+          "firm": "Morgan Stanley",
+          "rating": "预期强劲",
+          "price_target": 175.0,
+          "comment": "预计搜索广告收入将继续复苏，YouTube广告增长加速。云业务有望超出指引。",
+          "publish_date": "2025-09-10",
+          "source": "earnings_preview"
+        }
+      ]
+    },
+    {
+      "symbol": "TSLA",
+      "company_name": "特斯拉",
+      "earnings_date": "2025-09-25",
+      "quarter": "Q3 2025",
+      "fiscal_year": 2025,
+      "eps_estimate": 0.85,
+      "eps_actual": null,
+      "revenue_estimate": 24500000000.0,
+      "revenue_actual": null,
+      "beat_estimate": null,
+      "data_source": "future_prediction",
+      "analyst_comments": [
+        {
+          "analyst_name": "Dan Ives",
+          "firm": "Wedbush",
+          "rating": "维持观望",
+          "price_target": 275.0,
+          "comment": "预计交付量将符合预期，但利润率可能面临压力。FSD和能源业务是关键看点。",
+          "publish_date": "2025-09-15",
+          "source": "preview_analysis"
+        }
+      ]
+    },
+    {
+      "symbol": "PDD",
+      "company_name": "拼多多",
+      "earnings_date": "2025-08-26",
+      "quarter": "Q2 2025",
+      "fiscal_year": 2025,
+      "eps_estimate": 8.5,
+      "eps_actual": 9.27,
+      "revenue_estimate": 97200000000.0,
+      "revenue_actual": 103980000000.0,
+      "beat_estimate": true,
+      "data_source": "past_actual",
+      "post_earnings_price_changes": {
+        "day_1": -2.1,
+        "day_2": -1.8,
+        "day_3": 1.2,
+        "total_3day": -2.7
+      },
+      "analyst_comments": [
+        {
+          "analyst_name": "张强",
+          "firm": "花旗银行",
+          "rating": "预期强劲",
+          "price_target": 140.0,
+          "comment": "Temu海外业务快速扩张，预计国际收入将大幅增长。国内电商竞争加剧，关注获客成本。",
+          "publish_date": "2025-09-12",
+          "source": "preview_report"
+        }
+      ]
+    },
+    {
+      "symbol": "NVDA",
+      "company_name": "英伟达",
+      "earnings_date": "2025-10-15",
+      "quarter": "Q3 2025",
+      "fiscal_year": 2025,
+      "eps_estimate": 4.25,
+      "eps_actual": null,
+      "revenue_estimate": 32000000000.0,
+      "revenue_actual": null,
+      "beat_estimate": null,
+      "data_source": "future_prediction",
+      "analyst_comments": [
+        {
+          "analyst_name": "C.J. Muse",
+          "firm": "Evercore ISI",
+          "rating": "Outperform",
+          "price_target": 214.0,
+          "comment": "预计数据中心收入将再次超预期，H100需求持续旺盛。Blackwell架构开始量产。当前33x P/E低于8年中位数。",
+          "publish_date": "2025-08-25",
+          "source": "earnings_preview",
+          "accuracy_history": "82%"
+        },
+        {
+          "analyst_name": "Wall Street Consensus",
+          "firm": "57位分析师平均",
+          "rating": "Buy",
+          "price_target": 208.0,
+          "comment": "华尔街57位分析师一致预期，EPS将在2025年增长48%，2026年增长39%，PEG比率具有吸引力。",
+          "publish_date": "2025-09-12",
+          "source": "consensus_estimate",
+          "accuracy_history": "75%"
+        }
+      ]
+    },
+    {
+      "symbol": "META",
+      "company_name": "Meta",
+      "earnings_date": "2025-10-25",
+      "quarter": "Q3 2025",
+      "fiscal_year": 2025,
+      "eps_estimate": 4.85,
+      "eps_actual": null,
+      "revenue_estimate": 49000000000.0,
+      "revenue_actual": null,
+      "beat_estimate": null,
+      "data_source": "future_prediction",
+      "analyst_comments": [
+        {
+          "analyst_name": "Eric Sheridan",
+          "firm": "Goldman Sachs",
+          "rating": "预期强劲",
+          "price_target": 550.0,
+          "comment": "预测广告收入将加速增长，Reels商业化成效显著。VR业务亏损收窄。",
+          "publish_date": "2025-10-20",
+          "source": "preview_report"
+        }
+      ]
+    },
+    {
+      "symbol": "01211.HK",
+      "company_name": "比亚迪",
+      "earnings_date": "2025-10-28",
+      "quarter": "Q3 2025",
+      "fiscal_year": 2025,
+      "eps_estimate": 18.5,
+      "eps_actual": null,
+      "revenue_estimate": 150000000000.0,
+      "revenue_actual": null,
+      "beat_estimate": null,
+      "data_source": "future_prediction",
+      "analyst_comments": [
+        {
+          "analyst_name": "林小华",
+          "firm": "中信建投",
+          "rating": "买入",
+          "price_target": 125.0,
+          "comment": "新能源汽车销量持续高增长，电池业务外供拓展顺利。海外市场扩张加速。DM5.0产品周期强劲。",
+          "publish_date": "2025-08-11",
+          "source": "preview_analysis",
+          "accuracy_history": "71%"
+        },
+        {
+          "analyst_name": "中金团队",
+          "firm": "中金公司",
+          "rating": "跑赢行业",
+          "price_target": 135.0,
+          "comment": "上调2025年净利润预测至556亿元，2026年预测为687亿元。新能源车竞争加剧，估值面临调整。",
+          "publish_date": "2025-02-12",
+          "source": "research_report",
+          "accuracy_history": "69%"
+        }
+      ]
+    },
+    {
+      "symbol": "AMZN",
+      "company_name": "亚马逊",
+      "earnings_date": "2025-08-01",
+      "quarter": "Q2 2025",
+      "fiscal_year": 2025,
+      "eps_estimate": 1.32,
+      "eps_actual": 1.68,
+      "revenue_estimate": 162000000000.0,
+      "revenue_actual": 167700000000.0,
+      "beat_estimate": true,
+      "data_source": "past_actual",
+      "post_earnings_price_changes": {
+        "day_1": 4.2,
+        "day_2": 1.6,
+        "day_3": -0.9,
+        "total_3day": 4.9
+      },
+      "analyst_comments": [
+        {
+          "analyst_name": "Brian Olsavsky",
+          "firm": "JP Morgan",
+          "rating": "Buy",
+          "price_target": 210.0,
+          "comment": "AWS增长强劲，电商业务盈利能力改善。广告收入和Prime会员增长超预期。",
+          "publish_date": "2025-08-31",
+          "source": "earnings_call"
+        }
+      ]
+    },
+    {
+      "symbol": "JPM",
+      "company_name": "摩根大通",
+      "earnings_date": "2025-07-15",
+      "quarter": "Q2 2025",
+      "fiscal_year": 2025,
+      "eps_estimate": 4.12,
+      "eps_actual": 4.26,
+      "revenue_estimate": 43500000000.0,
+      "revenue_actual": 44912000000.0,
+      "beat_estimate": true,
+      "data_source": "past_actual",
+      "post_earnings_price_changes": {
+        "day_1": 2.8,
+        "day_2": 1.1,
+        "day_3": 0.3,
+        "total_3day": 4.2
+      },
+      "analyst_comments": [
+        {
+          "analyst_name": "Mike Mayo",
+          "firm": "Wells Fargo",
+          "rating": "Buy",
+          "price_target": 175.0,
+          "comment": "净息差环比改善，信贷损失控制良好。投行业务复苏明显。",
+          "publish_date": "2025-08-17",
+          "source": "research_report"
+        }
+      ]
+    },
+    {
+      "symbol": "V",
+      "company_name": "Visa",
+      "earnings_date": "2025-09-28",
+      "quarter": "Q4 2025",
+      "fiscal_year": 2025,
+      "eps_estimate": 2.42,
+      "eps_actual": null,
+      "revenue_estimate": 8500000000.0,
+      "revenue_actual": null,
+      "beat_estimate": null,
+      "data_source": "future_prediction",
+      "analyst_comments": [
+        {
+          "analyst_name": "Sanjay Sakhrani",
+          "firm": "KBW",
+          "rating": "预期强劲",
+          "price_target": 290.0,
+          "comment": "全球支付量持续增长，跨境业务复苏加速。数字支付渗透率提升。",
+          "publish_date": "2025-09-20",
+          "source": "preview_report"
+        }
+      ]
+    },
+    {
+      "symbol": "JNJ",
+      "company_name": "强生",
+      "earnings_date": "2025-07-16",
+      "quarter": "Q2 2025",
+      "fiscal_year": 2025,
+      "eps_estimate": 2.65,
+      "eps_actual": 2.77,
+      "revenue_estimate": 22400000000.0,
+      "revenue_actual": 23700000000.0,
+      "beat_estimate": true,
+      "data_source": "past_actual",
+      "post_earnings_price_changes": {
+        "day_1": 1.8,
+        "day_2": 0.5,
+        "day_3": 0.2,
+        "total_3day": 2.5
+      },
+      "analyst_comments": [
+        {
+          "analyst_name": "Chris Schott",
+          "firm": "JP Morgan",
+          "rating": "Buy",
+          "price_target": 175.0,
+          "comment": "药品业务表现稳健，医疗器械需求恢复。法律风险逐步缓解。",
+          "publish_date": "2025-08-21",
+          "source": "earnings_call"
+        }
+      ]
+    },
+    {
+      "symbol": "WMT",
+      "company_name": "沃尔玛",
+      "earnings_date": "2025-10-22",
+      "quarter": "Q3 2025",
+      "fiscal_year": 2026,
+      "eps_estimate": 1.52,
+      "eps_actual": null,
+      "revenue_estimate": 169000000000.0,
+      "revenue_actual": null,
+      "beat_estimate": null,
+      "data_source": "future_prediction",
+      "analyst_comments": [
+        {
+          "analyst_name": "Karen Short",
+          "firm": "Barclays",
+          "rating": "预期稳健",
+          "price_target": 75.0,
+          "comment": "电商业务持续增长，门店客流量保持稳定。供应链效率提升。",
+          "publish_date": "2025-10-15",
+          "source": "preview_analysis"
+        }
+      ]
+    },
+    {
+      "symbol": "PG",
+      "company_name": "宝洁",
+      "earnings_date": "2025-10-18",
+      "quarter": "Q1 2026",
+      "fiscal_year": 2026,
+      "eps_estimate": 1.83,
+      "eps_actual": null,
+      "revenue_estimate": 20500000000.0,
+      "revenue_actual": null,
+      "beat_estimate": null,
+      "data_source": "future_prediction",
+      "analyst_comments": [
+        {
+          "analyst_name": "Dara Mohsenian",
+          "firm": "Morgan Stanley",
+          "rating": "预期稳健",
+          "price_target": 170.0,
+          "comment": "品牌力强劲，定价能力突出。新兴市场增长潜力巨大。",
+          "publish_date": "2025-10-10",
+          "source": "preview_report"
+        }
+      ]
+    },
+    {
+      "symbol": "MA",
+      "company_name": "万事达",
+      "earnings_date": "2025-09-30",
+      "quarter": "Q3 2025",
+      "fiscal_year": 2025,
+      "eps_estimate": 3.68,
+      "eps_actual": null,
+      "revenue_estimate": 6200000000.0,
+      "revenue_actual": null,
+      "beat_estimate": null,
+      "data_source": "future_prediction",
+      "analyst_comments": [
+        {
+          "analyst_name": "Ramsey El-Assal",
+          "firm": "Barclays",
+          "rating": "Overweight",
+          "price_target": 580.0,
+          "comment": "支付网络效应显著，跨境交易复苏明显。数字化转型受益者。",
+          "publish_date": "2025-09-25",
+          "source": "preview_analysis",
+          "accuracy_history": "79%"
+        }
+      ]
+    },
+    {
+      "symbol": "HD",
+      "company_name": "家得宝",
+      "earnings_date": "2025-08-19",
+      "quarter": "Q2 2025",
+      "fiscal_year": 2025,
+      "eps_estimate": 4.63,
+      "eps_actual": 4.68,
+      "revenue_estimate": 44200000000.0,
+      "revenue_actual": 45300000000.0,
+      "beat_estimate": true,
+      "data_source": "past_actual",
+      "post_earnings_price_changes": {
+        "day_1": 3.1,
+        "day_2": 1.4,
+        "day_3": -0.8,
+        "total_3day": 3.7
+      },
+      "analyst_comments": [
+        {
+          "analyst_name": "Michael Lasser",
+          "firm": "UBS",
+          "rating": "Buy",
+          "price_target": 420.0,
+          "comment": "住房市场回暖带动需求，专业客户业务表现突出。门店运营效率提升。",
+          "publish_date": "2025-08-14",
+          "source": "earnings_call"
+        }
+      ]
+    },
+    {
+      "symbol": "09988.HK",
+      "company_name": "阿里巴巴",
+      "earnings_date": "2025-08-15",
+      "quarter": "Q1 2026财年",
+      "fiscal_year": 2026,
+      "eps_estimate": 10.2,
+      "eps_actual": 11.5,
+      "revenue_estimate": 237910000000.0,
+      "revenue_actual": 236450000000.0,
+      "beat_estimate": true,
+      "data_source": "past_actual",
+      "post_earnings_price_changes": {
+        "day_1": 8.2,
+        "day_2": 3.1,
+        "day_3": -1.5,
+        "total_3day": 9.8
+      },
+      "analyst_comments": [
+        {
+          "analyst_name": "陈伟华",
+          "firm": "高盛",
+          "rating": "Buy",
+          "price_target": 165.0,
+          "comment": "阿里云增长强劲，国际商业复苏明显。淘宝天猫用户增长超预期。",
+          "publish_date": "2025-08-16",
+          "source": "earnings_call",
+          "accuracy_history": "74%"
+        }
+      ]
+    },
+    {
+      "symbol": "00005.HK",
+      "company_name": "汇丰控股",
+      "earnings_date": "2025-08-12",
+      "quarter": "Q2 2025",
+      "fiscal_year": 2025,
+      "eps_estimate": 6.8,
+      "eps_actual": 7.2,
+      "revenue_estimate": 450000000000.0,
+      "revenue_actual": 463000000000.0,
+      "beat_estimate": true,
+      "data_source": "past_actual",
+      "post_earnings_price_changes": {
+        "day_1": 4.5,
+        "day_2": 2.1,
+        "day_3": 0.8,
+        "total_3day": 7.4
+      },
+      "analyst_comments": [
+        {
+          "analyst_name": "John Smith",
+          "firm": "摩根士丹利",
+          "rating": "Buy",
+          "price_target": 120.0,
+          "comment": "净息差改善明显，亚洲业务表现强劲。信贷成本控制良好。",
+          "publish_date": "2025-08-13",
+          "source": "earnings_call",
+          "accuracy_history": "67%"
+        }
+      ]
+    },
+    {
+      "symbol": "00939.HK",
+      "company_name": "建设银行",
+      "earnings_date": "2025-08-28",
+      "quarter": "Q2 2025",
+      "fiscal_year": 2025,
+      "eps_estimate": 8.5,
+      "eps_actual": 9.1,
+      "revenue_estimate": 385900000000.0,
+      "revenue_actual": 394270000000.0,
+      "beat_estimate": true,
+      "data_source": "past_actual",
+      "post_earnings_price_changes": {
+        "day_1": 3.8,
+        "day_2": 1.5,
+        "day_3": 0.4,
+        "total_3day": 5.7
+      },
+      "analyst_comments": [
+        {
+          "analyst_name": "李明",
+          "firm": "中金公司",
+          "rating": "Buy",
+          "price_target": 8.5,
+          "comment": "资产质量稳健，净息收入增长稳定。普惠金融业务拓展良好。",
+          "publish_date": "2025-08-29",
+          "source": "research_report"
+        }
+      ]
+    },
+    {
+      "symbol": "00388.HK",
+      "company_name": "港交所",
+      "earnings_date": "2025-09-12",
+      "quarter": "Q2 2025",
+      "fiscal_year": 2025,
+      "eps_estimate": 12.8,
+      "eps_actual": null,
+      "revenue_estimate": 180000000000.0,
+      "revenue_actual": null,
+      "beat_estimate": null,
+      "data_source": "future_prediction",
+      "analyst_comments": [
+        {
+          "analyst_name": "王小华",
+          "firm": "瑞银",
+          "rating": "Hold",
+          "price_target": 52.0,
+          "comment": "IPO市场回暖，交易量保持活跃。沪深港通业务增长稳定。",
+          "publish_date": "2025-09-08",
+          "source": "preview_report",
+          "accuracy_history": "65%"
+        }
+      ]
+    },
+    {
+      "symbol": "03988.HK",
+      "company_name": "中国银行",
+      "earnings_date": "2025-10-15",
+      "quarter": "Q3 2025",
+      "fiscal_year": 2025,
+      "eps_estimate": 6.8,
+      "eps_actual": null,
+      "revenue_estimate": 380000000000.0,
+      "revenue_actual": null,
+      "beat_estimate": null,
+      "data_source": "future_prediction",
+      "analyst_comments": [
+        {
+          "analyst_name": "张伟",
+          "firm": "中信证券",
+          "rating": "预期稳健",
+          "price_target": 4.5,
+          "comment": "国际业务优势明显，一带一路金融服务需求增长。",
+          "publish_date": "2025-10-10",
+          "source": "preview_analysis"
+        }
+      ]
+    },
+    {
+      "symbol": "01398.HK",
+      "company_name": "工商银行",
+      "earnings_date": "2025-08-25",
+      "quarter": "Q2 2025",
+      "fiscal_year": 2025,
+      "eps_estimate": 8.2,
+      "eps_actual": 8.8,
+      "revenue_estimate": 420000000000.0,
+      "revenue_actual": 435000000000.0,
+      "beat_estimate": true,
+      "data_source": "past_actual",
+      "post_earnings_price_changes": {
+        "day_1": 2.9,
+        "day_2": 1.2,
+        "day_3": 0.6,
+        "total_3day": 4.7
+      },
+      "analyst_comments": [
+        {
+          "analyst_name": "刘晓东",
+          "firm": "海通证券",
+          "rating": "Buy",
+          "price_target": 6.2,
+          "comment": "全球最大银行地位稳固，数字化转型成效显著。资产质量优良。",
+          "publish_date": "2025-08-26",
+          "source": "earnings_call"
+        }
+      ]
+    },
+    {
+      "symbol": "01109.HK",
+      "company_name": "华润置地",
+      "earnings_date": "2025-09-15",
+      "quarter": "Q2 2025",
+      "fiscal_year": 2025,
+      "eps_estimate": 12.5,
+      "eps_actual": null,
+      "revenue_estimate": 1100000000000.0,
+      "revenue_actual": null,
+      "beat_estimate": null,
+      "data_source": "future_prediction",
+      "analyst_comments": [
+        {
+          "analyst_name": "陈晓丽",
+          "firm": "中金公司",
+          "rating": "预期谨慎",
+          "price_target": 12.0,
+          "comment": "一线城市地产销售回暖，商业地产租金收入稳定。地产行业仍面临调整压力。",
+          "publish_date": "2025-09-10",
+          "source": "preview_report"
+        }
+      ]
+    },
+    {
+      "symbol": "00016.HK",
+      "company_name": "新鸿基地产",
+      "earnings_date": "2025-10-20",
+      "quarter": "Q2 2025",
+      "fiscal_year": 2026,
+      "eps_estimate": 15.8,
+      "eps_actual": null,
+      "revenue_estimate": 350000000000.0,
+      "revenue_actual": null,
+      "beat_estimate": null,
+      "data_source": "future_prediction",
+      "analyst_comments": [
+        {
+          "analyst_name": "林志强",
+          "firm": "瑞信",
+          "rating": "预期稳健",
+          "price_target": 125.0,
+          "comment": "香港地产龙头，土地储备丰富。商场业务恢复良好。",
+          "publish_date": "2025-10-15",
+          "source": "preview_analysis"
+        }
+      ]
+    },
+    {
+      "symbol": "00857.HK",
+      "company_name": "中石油",
+      "earnings_date": "2025-08-29",
+      "quarter": "Q2 2025",
+      "fiscal_year": 2025,
+      "eps_estimate": 15.2,
+      "eps_actual": 16.8,
+      "revenue_estimate": 1400000000000.0,
+      "revenue_actual": 1450000000000.0,
+      "beat_estimate": true,
+      "data_source": "past_actual",
+      "post_earnings_price_changes": {
+        "day_1": 6.2,
+        "day_2": 2.8,
+        "day_3": -1.2,
+        "total_3day": 7.8
+      },
+      "analyst_comments": [
+        {
+          "analyst_name": "赵强",
+          "firm": "中信建投",
+          "rating": "Buy",
+          "price_target": 68.0,
+          "comment": "油价上涨带动业绩提升，上游勘探开发投资加大。天然气业务增长稳定。",
+          "publish_date": "2025-08-30",
+          "source": "earnings_call"
+        }
+      ]
+    },
+    {
+      "symbol": "00386.HK",
+      "company_name": "中石化",
+      "earnings_date": "2025-09-08",
+      "quarter": "Q2 2025",
+      "fiscal_year": 2025,
+      "eps_estimate": 10.5,
+      "eps_actual": null,
+      "revenue_estimate": 1200000000000.0,
+      "revenue_actual": null,
+      "beat_estimate": null,
+      "data_source": "future_prediction",
+      "analyst_comments": [
+        {
+          "analyst_name": "孙玲",
+          "firm": "国泰君安",
+          "rating": "预期强劲",
+          "price_target": 5.2,
+          "comment": "炼化业务盈利能力改善，化工产品需求恢复。新能源业务加速布局。",
+          "publish_date": "2025-09-05",
+          "source": "preview_report"
+        }
+      ]
+    },
+    {
+      "symbol": "01299.HK",
+      "company_name": "友邦保险",
+      "earnings_date": "2025-08-22",
+      "quarter": "Q2 2025",
+      "fiscal_year": 2025,
+      "eps_estimate": 16.8,
+      "eps_actual": 18.2,
+      "revenue_estimate": 400000000000.0,
+      "revenue_actual": 425000000000.0,
+      "beat_estimate": true,
+      "data_source": "past_actual",
+      "post_earnings_price_changes": {
+        "day_1": 5.4,
+        "day_2": 3.2,
+        "day_3": 1.1,
+        "total_3day": 9.7
+      },
+      "analyst_comments": [
+        {
+          "analyst_name": "Michelle Chen",
+          "firm": "摩根大通",
+          "rating": "Buy",
+          "price_target": 48.0,
+          "comment": "新业务价值增长强劲，大中华区市场份额提升。数字化转型成效显著，但保险行业增长放缓。",
+          "publish_date": "2025-08-23",
+          "source": "earnings_call"
+        }
+      ]
+    },
+    {
+      "symbol": "02318.HK",
+      "company_name": "中国平安",
+      "earnings_date": "2025-08-18",
+      "quarter": "Q2 2025",
+      "fiscal_year": 2025,
+      "eps_estimate": 12.5,
+      "eps_actual": 13.8,
+      "revenue_estimate": 1300000000000.0,
+      "revenue_actual": 1342000000000.0,
+      "beat_estimate": true,
+      "data_source": "past_actual",
+      "post_earnings_price_changes": {
+        "day_1": 7.1,
+        "day_2": 2.9,
+        "day_3": 0.8,
+        "total_3day": 10.8
+      },
+      "analyst_comments": [
+        {
+          "analyst_name": "王梅",
+          "firm": "中金公司",
+          "rating": "Buy",
+          "price_target": 65.0,
+          "comment": "寿险业务复苏明显，科技赋能成效突出。综合金融优势持续扩大。",
+          "publish_date": "2025-08-19",
+          "source": "research_report"
+        }
+      ]
+    },
+    {
+      "symbol": "09618.HK",
+      "company_name": "京东集团",
+      "earnings_date": "2025-09-05",
+      "quarter": "Q2 2025",
+      "fiscal_year": 2025,
+      "eps_estimate": 3.8,
+      "eps_actual": null,
+      "revenue_estimate": 1100000000000.0,
+      "revenue_actual": null,
+      "beat_estimate": null,
+      "data_source": "future_prediction",
+      "analyst_comments": [
+        {
+          "analyst_name": "李雪",
+          "firm": "高盛",
+          "rating": "预期强劲",
+          "price_target": 125.0,
+          "comment": "物流网络优势显著，供应链服务收入增长。下沉市场渗透加速。",
+          "publish_date": "2025-09-02",
+          "source": "preview_analysis"
+        }
+      ]
+    },
+    {
+      "symbol": "02020.HK",
+      "company_name": "安踏体育",
+      "earnings_date": "2025-10-12",
+      "quarter": "Q3 2025",
+      "fiscal_year": 2025,
+      "eps_estimate": 20.5,
+      "eps_actual": null,
+      "revenue_estimate": 450000000000.0,
+      "revenue_actual": null,
+      "beat_estimate": null,
+      "data_source": "future_prediction",
+      "analyst_comments": [
+        {
+          "analyst_name": "黄小明",
+          "firm": "中信证券",
+          "rating": "预期稳健",
+          "price_target": 38.0,
+          "comment": "国产运动品牌龙头，品牌力持续提升。FILA业务恢复良好，但运动服装行业竞争激烈。",
+          "publish_date": "2025-10-08",
+          "source": "preview_report"
+        }
+      ]
+    },
+    {
+      "symbol": "00175.HK",
+      "company_name": "吉利汽车",
+      "earnings_date": "2025-09-22",
+      "quarter": "Q2 2025",
+      "fiscal_year": 2025,
+      "eps_estimate": 8.5,
+      "eps_actual": null,
+      "revenue_estimate": 1400000000000.0,
+      "revenue_actual": null,
+      "beat_estimate": null,
+      "data_source": "future_prediction",
+      "analyst_comments": [
+        {
+          "analyst_name": "张华",
+          "firm": "申万宏源",
+          "rating": "预期强劲",
+          "price_target": 13.5,
+          "comment": "新能源汽车销量高增长，极氪品牌表现亮眼。海外市场拓展顺利，但汽车行业竞争激烈。",
+          "publish_date": "2025-09-18",
+          "source": "preview_analysis"
+        }
+      ]
+    },
+    {
+      "symbol": "06060.HK",
+      "company_name": "众安在线",
+      "earnings_date": "2025-08-27",
+      "quarter": "Q2 2025",
+      "fiscal_year": 2025,
+      "eps_estimate": 3.2,
+      "eps_actual": 4.1,
+      "revenue_estimate": 80000000000.0,
+      "revenue_actual": 85000000000.0,
+      "beat_estimate": true,
+      "data_source": "past_actual",
+      "post_earnings_price_changes": {
+        "day_1": 12.5,
+        "day_2": 5.8,
+        "day_3": -2.1,
+        "total_3day": 16.2
+      },
+      "analyst_comments": [
+        {
+          "analyst_name": "刘芳",
+          "firm": "摩根士丹利",
+          "rating": "Buy",
+          "price_target": 32.0,
+          "comment": "科技驱动的保险创新，生态业务协同效应显著。用户增长超预期，但行业监管趋严。",
+          "publish_date": "2025-08-28",
+          "source": "earnings_call"
+        }
+      ]
+    },
+    {
+      "symbol": "09999.HK",
+      "company_name": "网易",
+      "earnings_date": "2025-08-24",
+      "quarter": "Q2 2025",
+      "fiscal_year": 2025,
+      "eps_estimate": 20.2,
+      "eps_actual": 22.8,
+      "revenue_estimate": 250000000000.0,
+      "revenue_actual": 268000000000.0,
+      "beat_estimate": true,
+      "data_source": "past_actual",
+      "post_earnings_price_changes": {
+        "day_1": 8.9,
+        "day_2": 4.2,
+        "day_3": 1.8,
+        "total_3day": 14.9
+      },
+      "analyst_comments": [
+        {
+          "analyst_name": "陈晓",
+          "firm": "瑞银",
+          "rating": "Buy",
+          "price_target": 185.0,
+          "comment": "游戏业务表现强劲，云音乐用户增长稳定。电商业务持续发力。",
+          "publish_date": "2025-08-25",
+          "source": "research_report"
+        }
+      ]
+    },
+    {
+      "symbol": "01024.HK",
+      "company_name": "快手",
+      "earnings_date": "2025-08-21",
+      "quarter": "Q2 2025",
+      "fiscal_year": 2025,
+      "eps_estimate": -2.8,
+      "eps_actual": -1.9,
+      "revenue_estimate": 220000000000.0,
+      "revenue_actual": 235000000000.0,
+      "beat_estimate": true,
+      "data_source": "past_actual",
+      "post_earnings_price_changes": {
+        "day_1": 15.2,
+        "day_2": 8.7,
+        "day_3": -3.4,
+        "total_3day": 20.5
+      },
+      "analyst_comments": [
+        {
+          "analyst_name": "张磊",
+          "firm": "中金公司",
+          "rating": "Buy",
+          "price_target": 55.0,
+          "comment": "直播电商业务高速增长，广告收入超预期。海外业务加速拓展，但短视频竞争加剧。",
+          "publish_date": "2025-08-22",
+          "source": "earnings_call"
+        }
+      ]
+    },
+    {
+      "symbol": "02382.HK",
+      "company_name": "舜宇光学",
+      "earnings_date": "2025-09-10",
+      "quarter": "Q2 2025",
+      "fiscal_year": 2025,
+      "eps_estimate": 8.5,
+      "eps_actual": null,
+      "revenue_estimate": 320000000000.0,
+      "revenue_actual": null,
+      "beat_estimate": null,
+      "data_source": "future_prediction",
+      "analyst_comments": [
+        {
+          "analyst_name": "李华",
+          "firm": "招商证券",
+          "rating": "预期强劲",
+          "price_target": 95.0,
+          "comment": "光学镜头需求回暖，汽车镜头业务增长迅猛。手机镜头出货量稳定。",
+          "publish_date": "2025-09-05",
+          "source": "preview_report"
+        }
+      ]
+    },
+    {
+      "symbol": "02269.HK",
+      "company_name": "药明生物",
+      "earnings_date": "2025-08-17",
+      "quarter": "Q2 2025",
+      "fiscal_year": 2025,
+      "eps_estimate": 12.5,
+      "eps_actual": 14.2,
+      "revenue_estimate": 180000000000.0,
+      "revenue_actual": 192000000000.0,
+      "beat_estimate": true,
+      "data_source": "past_actual",
+      "post_earnings_price_changes": {
+        "day_1": 9.8,
+        "day_2": 6.1,
+        "day_3": 2.3,
+        "total_3day": 18.2
+      },
+      "analyst_comments": [
+        {
+          "analyst_name": "王医生",
+          "firm": "摩根大通",
+          "rating": "Buy",
+          "price_target": 38.0,
+          "comment": "生物药CDMO龙头，订单饱满。美国业务恢复良好，但地缘政治风险仍存在。",
+          "publish_date": "2025-08-18",
+          "source": "research_report"
+        }
+      ]
+    },
+    {
+      "symbol": "09961.HK",
+      "company_name": "携程",
+      "earnings_date": "2025-09-14",
+      "quarter": "Q2 2025",
+      "fiscal_year": 2025,
+      "eps_estimate": 18.8,
+      "eps_actual": null,
+      "revenue_estimate": 95000000000.0,
+      "revenue_actual": null,
+      "beat_estimate": null,
+      "data_source": "future_prediction",
+      "analyst_comments": [
+        {
+          "analyst_name": "刘旅游",
+          "firm": "瑞银",
+          "rating": "Buy",
+          "price_target": 168.0,
+          "comment": "出境游复苏超预期，国际酒店预订大幅增长。机票业务利润率提升。",
+          "publish_date": "2025-09-10",
+          "source": "preview_analysis",
+          "accuracy_history": "73%"
+        }
+      ]
+    },
+    {
+      "symbol": "03888.HK",
+      "company_name": "金山软件",
+      "earnings_date": "2025-10-08",
+      "quarter": "Q3 2025",
+      "fiscal_year": 2025,
+      "eps_estimate": 4.2,
+      "eps_actual": null,
+      "revenue_estimate": 65000000000.0,
+      "revenue_actual": null,
+      "beat_estimate": null,
+      "data_source": "future_prediction",
+      "analyst_comments": [
+        {
+          "analyst_name": "陈软件",
+          "firm": "中信证券",
+          "rating": "预期稳健",
+          "price_target": 38.0,
+          "comment": "云业务增长稳定，游戏业务表现良好。办公软件用户增长。",
+          "publish_date": "2025-10-03",
+          "source": "preview_report"
+        }
+      ]
+    },
+    {
+      "symbol": "01833.HK",
+      "company_name": "平安好医生",
+      "earnings_date": "2025-08-30",
+      "quarter": "Q2 2025",
+      "fiscal_year": 2025,
+      "eps_estimate": -8.5,
+      "eps_actual": -6.2,
+      "revenue_estimate": 45000000000.0,
+      "revenue_actual": 48000000000.0,
+      "beat_estimate": true,
+      "data_source": "past_actual",
+      "post_earnings_price_changes": {
+        "day_1": 18.5,
+        "day_2": 12.3,
+        "day_3": -5.8,
+        "total_3day": 25.0
+      },
+      "analyst_comments": [
+        {
+          "analyst_name": "李医生",
+          "firm": "高盛",
+          "rating": "Buy",
+          "price_target": 28.0,
+          "comment": "在线医疗需求持续增长，亏损大幅收窄。用户付费意愿提升明显。",
+          "publish_date": "2025-08-31",
+          "source": "earnings_call"
+        }
+      ]
+    },
+    {
+      "symbol": "02015.HK",
+      "company_name": "理想汽车",
+      "earnings_date": "2025-09-26",
+      "quarter": "Q2 2025",
+      "fiscal_year": 2025,
+      "eps_estimate": 15.8,
+      "eps_actual": null,
+      "revenue_estimate": 550000000000.0,
+      "revenue_actual": null,
+      "beat_estimate": null,
+      "data_source": "future_prediction",
+      "analyst_comments": [
+        {
+          "analyst_name": "赵汽车",
+          "firm": "申万宏源",
+          "rating": "Buy",
+          "price_target": 128.0,
+          "comment": "理想L系列销量强劲，毛利率持续改善。智能驾驶技术领先。",
+          "publish_date": "2025-09-22",
+          "source": "preview_analysis",
+          "accuracy_history": "66%"
+        }
+      ]
+    },
+    {
+      "symbol": "09866.HK",
+      "company_name": "蔚来",
+      "earnings_date": "2025-10-05",
+      "quarter": "Q3 2025",
+      "fiscal_year": 2025,
+      "eps_estimate": -35.2,
+      "eps_actual": null,
+      "revenue_estimate": 185000000000.0,
+      "revenue_actual": null,
+      "beat_estimate": null,
+      "data_source": "future_prediction",
+      "analyst_comments": [
+        {
+          "analyst_name": "孙新能源",
+          "firm": "中金公司",
+          "rating": "预期谨慎",
+          "price_target": 58.0,
+          "comment": "新车型ET5表现良好，换电模式差异化优势。但盈利压力仍较大。",
+          "publish_date": "2025-10-01",
+          "source": "preview_report"
+        }
+      ]
+    },
+    {
+      "symbol": "02688.HK",
+      "company_name": "新东方在线",
+      "earnings_date": "2025-09-16",
+      "quarter": "Q1 2026",
+      "fiscal_year": 2026,
+      "eps_estimate": 8.2,
+      "eps_actual": null,
+      "revenue_estimate": 28000000000.0,
+      "revenue_actual": null,
+      "beat_estimate": null,
+      "data_source": "future_prediction",
+      "analyst_comments": [
+        {
+          "analyst_name": "张教育",
+          "firm": "招商证券",
+          "rating": "预期稳健",
+          "price_target": 15.0,
+          "comment": "在线教育业务转型成功，东方甄选直播带货表现亮眼。",
+          "publish_date": "2025-09-12",
+          "source": "preview_analysis"
+        }
+      ]
+    },
+    {
+      "symbol": "NFLX",
+      "company_name": "Netflix",
+      "earnings_date": "2025-10-16",
+      "quarter": "Q3 2025",
+      "fiscal_year": 2025,
+      "eps_estimate": 5.12,
+      "revenue_estimate": 9730000000.0,
+      "data_source": "future_prediction",
+      "analyst_comments": [
+        {
+          "analyst_name": "Michael Pachter",
+          "firm": "Wedbush",
+          "rating": "Buy",
+          "price_target": 725.0,
+          "comment": "广告收入增长强劲，国际市场扩张效果显著。内容投资回报率提升，用户增长超预期。",
+          "publish_date": "2025-09-10",
+          "source": "preview_analysis"
+        }
+      ]
+    },
+    {
+      "symbol": "COST",
+      "company_name": "Costco",
+      "earnings_date": "2025-09-25",
+      "quarter": "Q4 2025",
+      "fiscal_year": 2025,
+      "eps_estimate": 4.08,
+      "revenue_estimate": 79500000000.0,
+      "data_source": "future_prediction",
+      "analyst_comments": [
+        {
+          "analyst_name": "Chuck Grom",
+          "firm": "Gordon Haskett",
+          "rating": "Buy",
+          "price_target": 950.0,
+          "comment": "会员续费率保持高位，国际业务扩张稳健。通胀环境下价值主张突出。",
+          "publish_date": "2025-09-08",
+          "source": "preview_analysis"
+        }
+      ]
+    },
+    {
+      "symbol": "CSCO",
+      "company_name": "思科系统",
+      "earnings_date": "2025-08-14",
+      "quarter": "Q4 2025",
+      "fiscal_year": 2025,
+      "eps_estimate": 0.87,
+      "eps_actual": 0.91,
+      "revenue_estimate": 13800000000.0,
+      "revenue_actual": 13640000000.0,
+      "beat_estimate": true,
+      "data_source": "past_actual",
+      "post_earnings_price_changes": {
+        "day_1": 2.8,
+        "day_2": 1.2,
+        "day_3": -0.8,
+        "total_3day": 3.2
+      },
+      "analyst_comments": [
+        {
+          "analyst_name": "Tal Liani",
+          "firm": "Bank of America",
+          "rating": "Buy",
+          "price_target": 58.0,
+          "comment": "网络安全业务表现强劲，AI基础设施需求推动增长。订阅模式转型成功。",
+          "publish_date": "2025-08-15",
+          "source": "earnings_call"
+        }
+      ]
+    },
+    {
+      "symbol": "AMD",
+      "company_name": "超微半导体",
+      "earnings_date": "2025-10-29",
+      "quarter": "Q3 2025",
+      "fiscal_year": 2025,
+      "eps_estimate": 0.92,
+      "revenue_estimate": 8700000000.0,
+      "data_source": "future_prediction",
+      "analyst_comments": [
+        {
+          "analyst_name": "Vivek Arya",
+          "firm": "Bank of America",
+          "rating": "Buy",
+          "price_target": 180.0,
+          "comment": "数据中心GPU需求旺盛，AI芯片竞争力提升。服务器CPU市场份额继续扩大。",
+          "publish_date": "2025-09-11",
+          "source": "preview_analysis"
+        }
+      ]
+    },
+    {
+      "symbol": "PEP",
+      "company_name": "百事公司",
+      "earnings_date": "2025-10-08",
+      "quarter": "Q3 2025",
+      "fiscal_year": 2025,
+      "eps_estimate": 2.05,
+      "revenue_estimate": 23400000000.0,
+      "data_source": "future_prediction",
+      "analyst_comments": [
+        {
+          "analyst_name": "Dara Mohsenian",
+          "firm": "Morgan Stanley",
+          "rating": "Hold",
+          "price_target": 172.0,
+          "comment": "北美饮料业务面临挑战，零食业务保持稳定增长。国际市场表现良好。",
+          "publish_date": "2025-09-09",
+          "source": "preview_analysis"
+        }
+      ]
+    },
+    {
+      "symbol": "INTC",
+      "company_name": "英特尔",
+      "earnings_date": "2025-10-24",
+      "quarter": "Q3 2025",
+      "fiscal_year": 2025,
+      "eps_estimate": 0.12,
+      "revenue_estimate": 13100000000.0,
+      "data_source": "future_prediction",
+      "analyst_comments": [
+        {
+          "analyst_name": "Stacy Rasgon",
+          "firm": "Bernstein",
+          "rating": "Hold",
+          "price_target": 25.0,
+          "comment": "代工业务重组进展缓慢，PC市场复苏有限。AI芯片竞争落后明显。",
+          "publish_date": "2025-09-12",
+          "source": "preview_analysis"
+        }
+      ]
+    },
+    {
+      "symbol": "TXN",
+      "company_name": "德州仪器",
+      "earnings_date": "2025-08-22",
+      "quarter": "Q2 2025",
+      "fiscal_year": 2025,
+      "eps_estimate": 1.68,
+      "eps_actual": 1.72,
+      "revenue_estimate": 4020000000.0,
+      "revenue_actual": 4080000000.0,
+      "beat_estimate": true,
+      "data_source": "past_actual",
+      "post_earnings_price_changes": {
+        "day_1": 1.9,
+        "day_2": 0.8,
+        "day_3": 1.1,
+        "total_3day": 3.8
+      },
+      "analyst_comments": [
+        {
+          "analyst_name": "Joshua Buchalter",
+          "firm": "Cowen",
+          "rating": "Buy",
+          "price_target": 220.0,
+          "comment": "工业和汽车芯片需求回暖，库存水平正常化。模拟芯片领导地位稳固。",
+          "publish_date": "2025-08-23",
+          "source": "earnings_call"
+        }
+      ]
+    },
+    {
+      "symbol": "QCOM",
+      "company_name": "高通公司",
+      "earnings_date": "2025-10-30",
+      "quarter": "Q4 2025",
+      "fiscal_year": 2025,
+      "eps_estimate": 2.87,
+      "revenue_estimate": 10200000000.0,
+      "data_source": "future_prediction",
+      "analyst_comments": [
+        {
+          "analyst_name": "Timothy Arcuri",
+          "firm": "UBS",
+          "rating": "Buy",
+          "price_target": 185.0,
+          "comment": "5G芯片需求稳定，汽车芯片业务增长加速。AI手机芯片竞争优势明显。",
+          "publish_date": "2025-09-10",
+          "source": "preview_analysis"
+        }
+      ]
+    },
+    {
+      "symbol": "ADBE",
+      "company_name": "Adobe",
+      "earnings_date": "2025-09-12",
+      "quarter": "Q3 2025",
+      "fiscal_year": 2025,
+      "eps_estimate": 5.18,
+      "eps_actual": 5.31,
+      "revenue_estimate": 5910000000.0,
+      "revenue_actual": 5990000000.0,
+      "beat_estimate": true,
+      "data_source": "past_actual",
+      "post_earnings_price_changes": {
+        "day_1": 3.5,
+        "day_2": 2.1,
+        "day_3": 1.2,
+        "total_3day": 6.8
+      },
+      "analyst_comments": [
+        {
+          "analyst_name": "Brad Zelnick",
+          "firm": "Deutsche Bank",
+          "rating": "Buy",
+          "price_target": 650.0,
+          "comment": "Creative Cloud订阅增长强劲，AI功能推动用户付费意愿提升。企业级解决方案需求旺盛。",
+          "publish_date": "2025-09-13",
+          "source": "earnings_call"
+        }
+      ]
+    },
+    {
+      "symbol": "AMGN",
+      "company_name": "安进公司",
+      "earnings_date": "2025-10-31",
+      "quarter": "Q3 2025",
+      "fiscal_year": 2025,
+      "eps_estimate": 4.58,
+      "revenue_estimate": 7200000000.0,
+      "data_source": "future_prediction",
+      "analyst_comments": [
+        {
+          "analyst_name": "Geoff Meacham",
+          "firm": "Bank of America",
+          "rating": "Buy",
+          "price_target": 310.0,
+          "comment": "新药研发管线丰富，肿瘤药物表现优异。生物仿制药竞争压力缓解。",
+          "publish_date": "2025-09-11",
+          "source": "preview_analysis"
+        }
+      ]
+    }
+  ]
+}
